@@ -1,7 +1,7 @@
 # 오늘의 수업
  [메인페이지](https://skadbstj12.github.io/class2024/)   
 
- [자바스크립트](https://skadbstj12.github.io/class2024/javascript/index.html)   
+ [자바스크립트](https://skadbstj12.github.io/class2024/Javascript/index.html)   
 
 # vscode 확장 프로그램
 Live Server: 웹페이지 미리보기   
