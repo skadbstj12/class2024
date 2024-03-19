@@ -138,15 +138,39 @@ li {
 /* 헤더 영역 */
 #header {
     text-align: center;
+    padding: 40px;
+    border-bottom: 1px dashed #dcdcdc;
 
     h1 {
-        a {}
+        margin-bottom: 20px;
+
+        a {
+            font-family: var(--fontG);
+            font-size: 4vw;
+            color: #a723238c;
+
+            @media (max-width: 800px) {
+                font-size: 30px;
+                
+            }
+        }
     }
 
     nav {
         ul{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
             li{
-                a{}
+                margin: 2px;
+                a{
+                    font-family: var(--fontN);
+                    border: 1px solid #a723238c;
+                    padding: 10px 20px;
+                    display: inline-block;
+                    color: #a723238c;
+                }
             }
         }
     }
