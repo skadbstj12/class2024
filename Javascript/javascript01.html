@@ -422,138 +422,48 @@ console.log(...arr3) // 100200javascirpt500
     <script src="assets/js/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     <script>
-        // 01. 변수 : 데이터 저장
+        // 13. 객체 : 데이터 저장(키와값) 표현방법 1 : 객체 선언 후 배열 방식으로 데이터 입력
         {
-            let x = 100;
-            let y = 200;
-            let z = "javascript";
-            console.log(x);
-            console.log(y);
-            console.log(z);
-        }
-        // 02. 변수 : 데이터 저장 + 데이터 변경
-        {
-            let x = 100;
-            let y = 200;
-            let z = "javascript";
-            x = 300;
-            y = 400;
-            z = "Jquery"
-            console.log(x);
-            console.log(y);
-            console.log(z);
-        }
-        // 03. 변수 : 데이터 저장 + 데이터 변경 + 데이터 추가
-        {
-            let x = 100;
-            let y = 200;
-            let z = "javascript";
-            x += 300;
-            y += 400;
-            z += "Jquery"
-            console.log(x);
-            console.log(y);
-            console.log(z);
-        }
-        // 04. 상수 : 데이터 저장(변경&추가 X)
-        {
-            let x = 100;
-            let y = 200;
-            let z = "javascript";
-            // x += 300;
-            // y += 400;
-            // z += "Jquery"
-            console.log(x);
-            console.log(y);
-            console.log(z);
-        }
-        // 05. 배열 : 데이터 저장(여러개) : 표현방법 1 : 배열선언
-        {
-            const arr = new Array();
-            arr[0] = 100;
-            arr[1] = 200;
-            arr[2] = "javascript";
-            console.log("05_____________");
-            console.log(arr[0]);
-            console.log(arr[1]);
-            console.log(arr[2]);
-        }
-        // 06. 배열 : 데이터 저장(여러개) : 표현방법 2 : 배열선언 + 초기값 설정
-        {
-            const arr = new Array(100, 200, "javascript");
-            console.log("06_____________");
-            console.log(arr[0]);
-            console.log(arr[1]);
-            console.log(arr[2]);
-        }
-        // 07. 배열 : 데이터 저장(여러개) : 표현방법 3 : 리터럴방식 배열선언
-        {
-            const arr = [];
-            arr[0] = 100;
-            arr[1] = 200;
-            arr[2] = "javascript";
-            console.log("07_____________");
-            console.log(arr[0]);
-            console.log(arr[1]);
-            console.log(arr[2]);
-        }
-        // 08. 배열 : 데이터 저장(여러개) : 표현방법 4 : 리터럴방식 배열선언 + 초기값 설정 (가장 많이 사용)
-        {
-            const arr = [100, 200, "javascript"];
-            console.log("08_____________");
-            console.log(arr[0]);
-            console.log(arr[1]);
-            console.log(arr[2]);
-        }
-        // 09. 배열 : 데이터 저장(여러개) : 표현방법 5 : push() 매서드를 이용한 배열 방법
-        {
-            const arr = [100, 200, "javascript"];
-            arr.push(400);
-            console.log("09_____________");
-            console.log(arr[0]);
-            console.log(arr[1]);
-            console.log(arr[2]);
-            console.log(arr[3]);
-        }
-        // 10. 배열 : 데이터 저장(여러개) : 표현방법 6 : 다차원 배열
-        {
-            const arr = [100, [200, 300, [400, 500, [600]]], ["javascript", "Jquery"]];
-            console.log("10_____________");
-            console.log(arr[0]);
-            console.log(arr[1][0]);
-            console.log(arr[1][1]);
-            console.log(arr[2][0]);
-            console.log(arr[2][1]);
-            console.log(arr[1][2][2][0]);
-        }
-        // 11. 배열 : 데이터 저장(여러개) : 표현방법 7 : 배열구조 분해 할당
-        {
-            const arr = [100, 200, "javascript"];
-            const [a, b, c] = arr;
-            console.log("11_____________");
-            console.log(a);
-            console.log(b);
-            console.log(c);
-        }
-        {
-            const arr2 = [100, 200, [300, 400]];
-            const [a, b, [x, y]] = arr2;
-            console.log(a);
-            console.log(b);
-            console.log(x);
-            console.log(y);
-        }
-        // 12. 배열 : 데이터 저장(여러개) : 표현방법 8 : 배열 펼침 연산자
-        {
-            const arr1 = [100, 200, "javascript"];
-            const arr2 = [300, 400, "Jquery"];
-            const arr3 = [...arr1, 500];
+            const obj = new Object(); //객체 선언
 
-            console.log(arr1); // [100, 200, "javascript"]
-            console.log(...arr1) // 100200javjascript
-            console.log(...arr1, ...arr2); // 100200javascirpt300400jquuery
-            console.log(...arr3) // 100200javascirpt500
+            obj[0] = 100; //obj변수에 숫자 100을 저장
+            obj[0] = 200; //obj변수에 숫자 200을 저장
+            obj[0] = "javascript"; //obj변수에 숫자 javascript을 저장
+            
+            console.log("13. 객체 : 표현방법1");
+            console.log(obj[0]);
+            console.log(obj[1]);
+            console.log(obj[2]);
         }
+        // 14. 객체 : 데이터 저장(키와값) 표현방법 2 : 객체 선언 후 객체 방식으로 데이터 입력
+        // 15. 객체 : 데이터 저장(키와값) 표현방법 3 : 리터럴 방식으로 객체 선언
+        // 16. 객체 : 데이터 저장(키와값) 표현방법 4 : 리터럴 방식으로 객체 선언과 동시에 초깃값을 설정
+        // 17. 객체 : 데이터 저장(키와값) 표현방법 5 : 배열안에 객체가 있는 방식
+        // 18. 객체 : 데이터 저장(키와값) 표현방법 6 : 객체안에 배열이 있는 방식
+        // 19. 객체 : 데이터 저장(키와값) 표현방법 7 : 객체안에 객체가 있는 방식
+        // 19. 객체 : 데이터 저장(키와값) 표현방법 8 : 객체 + 함수가 있는 방식
+        // 19. 객체 : 데이터 저장(키와값) 표현방법 9 : 객체구조분해할당
+        // 20. 객체 : 데이터 저장(키와값) 표현방법 10 : 객체펼침연산자
+        
+        // 05. 배열 객체 : 데이터 저장 (여러개) : 표현방법 1
+        // 05. 배열 객체 : 데이터 저장 (여러개) : 표현방법 2
+        // 05. 배열 객체 : 데이터 저장 (여러개) : 표현방법 3
+        // 05. 배열 객체 : 데이터 저장 (여러개) : 표현방법 4
+        // 05. 배열 객체 : 데이터 저장 (여러개) : 표현방법 5
+        // 05. 배열 객체 : 데이터 저장 (여러개) : 표현방법 6
+        // 05. 배열 객체 : 데이터 저장 (여러개) : 표현방법 7
+        // 05. 배열 객체 : 데이터 저장 (여러개) : 표현방법 8
+
+        // 05. 배열 객체 : 데이터 저장 (키와값) : 표현방법 1        
+        // 05. 배열 객체 : 데이터 저장 (키와값) : 표현방법 2        
+        // 05. 배열 객체 : 데이터 저장 (키와값) : 표현방법 3        
+        // 05. 배열 객체 : 데이터 저장 (키와값) : 표현방법 4        
+        // 05. 배열 객체 : 데이터 저장 (키와값) : 표현방법 5        
+        // 05. 배열 객체 : 데이터 저장 (키와값) : 표현방법 6        
+        // 05. 배열 객체 : 데이터 저장 (키와값) : 표현방법 7        
+        // 05. 배열 객체 : 데이터 저장 (키와값) : 표현방법 8        
+        // 05. 배열 객체 : 데이터 저장 (키와값) : 표현방법 9        
+        // 05. 배열 객체 : 데이터 저장 (키와값) : 표현방법 10        
     </script>
 </body>
 
