@@ -32,7 +32,7 @@
             <div id="sample01" class="sample">
                 <h3>데이터베이스 보기</h3>
                 <div class="info">
-                    show database 이름;
+                    show database 이름
                 </div>
                 <pre><code class="language-js">mysql> show databases ;
 +--------------------+
@@ -49,9 +49,12 @@
             <div id="sample02" class="sample">
                 <h3>데이터베이스 만들기</h3>
                 <div class="info">
-                    create database 이름;
+                    create database 이름
                 </div>
-                <pre><code class="language-js">mysql> show database test;
+                <pre><code class="language-js"> create database test;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
 +--------------------+
 | Database           |
 +--------------------+
@@ -61,13 +64,13 @@
 | sys                |
 | test               |
 +--------------------+
-5 rows in set (0.00 sec)</code></pre>
+6 rows in set (0.00 sec)</code></pre>
             </div>
 
             <div id="sample03" class="sample">
                 <h3>데이터베이스 삭제</h3>
                 <div class="info">
-                    drop database 이름;
+                    drop database 이름
                 </div>
                 <pre><code class="language-js">mysql> drop database test;
 Query OK, 1 row affected (0.01 sec)
@@ -87,11 +90,13 @@ mysql> show databases;
             <div id="sample04" class="sample">
                 <h3>데이터베이스 사용하기</h3>
                 <div class="info">
-                    use 이름;
+                    use 이름
                 </div>
                 <pre><code class="language-js">mysql> use test;
 Database changed</code></pre>
             </div>
+
+
         </div>
     </main>
     <!-- //main -->
