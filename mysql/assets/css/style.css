@@ -210,6 +210,11 @@ li {
     color: #a723238c;
 }
 
+#header nav ul li.active a {
+    background-color: #a723238c;
+    color: #fff;
+}
+
 /* main__sample */
 .main__sample {
     padding: 40px;
@@ -228,7 +233,14 @@ li {
 .main__sample .sample h3 {
     font-size: 30px;
     font-family: var(--fontG);
+    margin-bottom: 20px;
+}
+
+.main__sample .sample h4 {
+    font-size: 20px;
+    font-family: var(--fontG);
     margin-bottom: 10px;
+    font-weight: 500px;
 }
 
 .main__sample .sample p {
@@ -236,7 +248,13 @@ li {
     font-family: var(--fontN);
     margin-bottom: 10px;
     line-height: 1.7;
+    margin-top: 10;
     color: var(--black300);
+}
+
+.main__sample .sample p:last-child {
+    font-size: 0;
+
 }
 
 .main__sample .sample p.strong {
@@ -245,10 +263,28 @@ li {
     margin-bottom: 15px;
 }
 
+.main__sample .sample ul {
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.main__sample .sample li {
+    color: var(--black300);
+    line-height: 1.8;
+    font-family: var(--fontN);
+    list-style: square;
+}
+
+.main__sample .sample i {
+    color: red;
+    font-style: normal;
+}
+
 .main__sample .sample .info {
     padding: 20px;
     background-color: #f4f8fa;
     border-left: 3px solid #35a6c9;
+    font-family: var(--fontN);
 }
 
 .main__sample .sample .info p {
@@ -258,4 +294,12 @@ li {
 .main__sample .sample .info a {
     color: #2b8fad;
     text-decoration: underline;
+}
+
+/* footer */
+#footer {
+    padding: 100px;
+    text-align: center;
+    font-family: var(--fontN);
+    font-style: 14px;
 }
