@@ -5,6 +5,14 @@
    
  [MySQL](https://skadbstj12.github.io/class2024/mysql/index.html)
 
+ [Quiz](https://skadbstj12.github.io/class2024/quiz/index.html)
+
+ [Html5](https://skadbstj12.github.io/class2024/html5/index.html)
+
+ [CSS](https://skadbstj12.github.io/class2024/css/index.html)
+
+ [Githup](https://skadbstj12.github.io/class2024/githup/index.html)
+
 
 # vscode 확장 프로그램
 Live Server: 웹페이지 미리보기   
@@ -35,6 +43,8 @@ ES7 : 자바스크립트 및 리액트 문법 정리
 색상 관련 [브랜드 색상 제너레이션](https://huemint.com)
 
 SCSSS ---> CSS 변환 사이트 (https://www.sassmeister.com/)
+
+컬러 코드 (https://htmlcolorcodes.com/)
 
 
 
