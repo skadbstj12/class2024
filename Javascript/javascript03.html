@@ -336,7 +336,7 @@ console.log(func4("10.함수가 실행되었습니다."));</code></pre>
         //01. 함수 : 선언적 함수
         {
             function func() {
-                console.log("01. 함수가 실행되었습니다.");
+                console.log("~~~");
             }
             func();
         }
@@ -344,138 +344,122 @@ console.log(func4("10.함수가 실행되었습니다."));</code></pre>
         // 02. 함수 : 익명 함수
         {
             const func = function () {
-                console.log("02. 함수가 실행되었습니다.");
+                console.log("~~~");
             };
             func();
         }
 
         // 03. 함수 : 매개변수 함수
         {
-            // 선언적 함수
             function func(str) {
                 console.log(str);
             }
-            func("03. 함수가 실행되었습니다.");
+            func("~~~");
 
-            // 익명 함수
             const func1 = function (str) {
                 console.log(str);
             }
-            func1("03. 함수가 실행되었습니다.");
+            func1("~~~");
         }
 
         // 04. 함수 : 리턴값 함수
         {
-            // 선언적 함수
             function func() {
-                return "04. 함수가 실행되었습니다."
+                return "~~~"
             }
             console.log(func());
 
-            // 익명 함수
             const func1 = function () {
-                return "04. 함수가 실행되었습니다."
+                return "~~~"
             }
             console.log(func1());
         }
 
         // 05. 함수 : 매개변수 + 리턴값 함수
         {
-            // 선언적 함수
             function func(str) {
                 return str;
             }
-            console.log(func("05. 함수가 실행되었습니다."));
+            console.log(func("~~~"));
 
 
-            // 익명 함수
             const func1 = function (str) {
                 return str;
             }
-            console.log(func1("05. 함수가 실행되었습니다."));
+            console.log(func1("~~~"));
 
         }
 
         // 06. 화살표 함수 : 선언적 함수
         {
-            // 선언적 함수
             function func() {
-                console.log("06. 함수가 실행되었습니다.")
+                console.log("~~~")
             }
             func();
 
             func = () => {
-                console.log("06. 함수가 실행되었습니다.")
+                console.log("~~~")
             }
             func();
 
         }
         // 07. 화살표 함수 : 익명 함수
         {
-            // 익명 함수
             const func = function () {
-                console.log("07. 함수가 실행되었습니다.")
+                console.log("~~~")
             };
             func();
 
-            // 익명 함수 --> 화살표함수
             const func1 = () => {
-                console.log("07. 함수가 실행되었습니다.")
+                console.log("~~~")
             };
             func1();
         }
         // 08. 화살표 함수 : 매개변수 함수
         {
-            // 선언적 함수
             func = (str) => {
                 console.log(str);
             }
-            func("08. 함수가 실행되었습니다.");
+            func("~~~");
 
-            // 익명 함수
 
             const func1 = (str) => {
                 console.log(str);
             }
-            func1("08. 함수가 실행되었습니다.");
+            func1("~~~");
         }
 
         // 09. 화살표 함수 : 리턴값 함수
         {
-            // 선언적 함수
+
             func = () => {
-                return "09. 함수가 실행되었습니다."
+                return "~~~"
             }
             console.log(func());
 
-            // 익명 함수
             const func1 = () => {
-                return "09. 함수가 실행되었습니다."
+                return "~~~"
             }
             console.log(func1());
         }
 
         // 10. 화살표 함수 : 매개변수 + 리턴값 함수
         {
-            // 익명 함수(화살표 함수) + 매개변수 + 리턴값
             const func = (str) => {
                 return str;
             }
-            console.log(func("10. 함수가 실행되었습니다."));
+            console.log(func("~~~"));
 
-            // 매개변수가 하나이면 괄호 생략 가능
             const func2 = str => {
                 return str;
             }
-            console.log(func2("10. 함수가 실행되었습니다."));
+            console.log(func2("~~~"));
 
-            // 리턴 생략
             const func3 = str => str;
-            console.log(func3("10. 함수가 실행되었습니다."));
+            console.log(func3("~~~"));
 
-            // 선언적 함수(가독성X)
             func4 = str => str;
-            console.log(func4("10. 함수가 실행되었습니다."));
+            console.log(func4("~~~"));
         }
 
         // 11. 함수 유형 : 함수와 매개변수를 이용한 형태

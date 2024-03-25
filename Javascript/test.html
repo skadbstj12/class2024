@@ -55,6 +55,81 @@
             console.log(func1("함수"));
         }
 
+        // 06. 화살표 함수 : 선언적 함수
+        {
+            // 선언적 함수
+            function func() {
+                console.log("06. 함수가 실행되었습니다.")
+            }
+            func();
+
+            func = () => {
+                console.log("06. 함수가 실행되었습니다.")
+            }
+            func();
+
+        }
+
+        // 07. 화살표 함수 : 익명 함수
+        {
+            // 익명 함수
+            const func = function () {
+                console.log("07. 함수가 실행되었습니다.")
+            };
+            func();
+
+            // 익명 함수 --> 화살표함수
+            const func1 = () => {
+                console.log("07. 함수가 실행되었습니다.")
+            };
+            func1();
+        }
+
+        // 08. 화살표 함수 : 매개변수 함수
+        {
+            func = (str) => {
+                console.log(str);
+            }
+            func("08. 함수가 실행되었습니다.");
+
+            const func1 = (str) => {
+                console.log(str);
+            }
+            func1("08. 함수가 실행되었습니다.");
+        }
+
+
+        // 09. 화살표 함수 : 리턴값 함수
+        {
+            func = () => {
+                return "09. 함수가 실행되었습니다."
+            }
+            console.log(func());
+
+            const func1 = () => {
+                return "09. 함수가 실행되었습니다."
+            }
+            console.log(func1());
+        }
+
+        // 10. 화살표 함수 : 매개변수 + 리턴값 함수
+        {
+            const func = (str) => {
+                return str;
+            }
+            console.log(func("10. 함수가 실행되었습니다."));
+
+            const func2 = str => {
+                return str;
+            }
+            console.log(func2("10. 함수가 실행되었습니다."));
+
+            const func3 = str => str;
+            console.log(func3("10. 함수가 실행되었습니다."));
+
+            func4 = str => str;
+            console.log(func4("10. 함수가 실행되었습니다."));
+        }
 
 
 
