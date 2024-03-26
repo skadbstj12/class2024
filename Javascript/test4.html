@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test4</title>
+</head>
+
+<body>
+    <script>
+        //선언
+        {
+            function test4() {
+                console.log("선언")
+            } test4()
+        }
+        //익명
+        {
+            const test4 = function () {
+                console.log("익명")
+            }; test4()
+        }
+        //매개
+        {
+            function test4(str) {
+                console.log(str)
+            }; test4("매개")
+        }
+        //리턴
+        {
+            function test4() {
+                return "리턴"
+            } test4()
+        }
+        //매개리턴
+        {
+            function test4(str) {
+                return (str)
+            }; console.log("매개 리턴")
+        }
+        //(화살표)선언
+        {
+            test4 = () => {
+                console.log("선언")
+            }; test4()
+        }
+        //(화살표)익명
+        {
+            const test4 = () => {
+                console.log("익명")
+            }; test4()
+        }
+        //(화살표)매개
+        {
+            test4 = (str) => {
+                console.log(str)
+            }; test4("매개")
+        }
+        //(화살표)리턴
+        {
+            test4 = () => {
+                return "리턴"
+            }; test4()
+        }
+        //(화살표)매개리턴
+        {
+            test4 = (str) => {
+                return (str)
+            }; console.log("매개 리턴")
+        }
+        // for()
+        {
+            const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900]
+            for (let i = 0; i < arr.length; i++)
+                console.log(arr[i])
+        }
+        // foreach
+        {
+            const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900]
+            arr.forEach(function (e) {
+                console.log(e)
+            })
+        }
+        // for of
+        {
+            const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900]
+            for (let e of arr)
+                console.log(e)
+        }
+        // for in
+        {
+            const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900]
+            for (let e in arr)
+                console.log(arr[e])
+        }
+        // for map
+        {
+            const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900]
+            console.log("for map")
+            arr.map(function (e) {
+                console.log(e)
+            })
+        }
+    </script>
+</body>
+
+</html>

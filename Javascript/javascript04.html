@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>자바스크립트 :: 데이터 제어하기</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/default.min.css">
 </head>
+
 <body>
-    
+    <header id="header">
+        <h1>
+            <a href="index.html">Javascript</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="javascript01.html">데이터 저장하기</a></li>
+                <li><a href="javascript02.html">데이터 불러오기</a></li>
+                <li><a href="javascript03.html">데이터 실행하기</a></li>
+                <li class="active"><a href="javascript04.html">데이터 제어하기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+
+        <!-- //main__menu container -->
+        <div class="main__sample container">
+            <div id="sample01" class="sample">
+                <h3>01. 변수 : 데이터 저장</h3>
+                <p>
+                    자바스크립트에서 변수는 값을 지정하고 참조하는데 사용합니다.
+                    변수를 사용하면 데이터를 저장하고 나중에 해당 데이터를 재사용 할 수 있습니다.
+                </p>
+                <pre><code>{
+    let x = 100;  // let x = 100; : 여기서 let 키워드를 사용하여 변수 x를 선언하고, 100이라는 숫자 값을 할당합니다.
+    let y = 200;  // let y = 200; : 이 라인에서도 let을 사용해 y라는 변수를 선언하고, 200이라는 숫자 값을 할당합니다
+    let z = "javascript";  // let z = "javascript"; : 이 라인에서는 z라는 변수를 선언하고, "javascript"라는 문자열 값을 할당합니다
+    console.log(x); // console.log() 함수를 사용하여 변수 x의 값을 콘솔에 출력합니다. 이 경우, 100이 출력됩니다.
+    console.log(y); // console.log() 함수를 사용하여 변수 y의 값을 콘솔에 출력합니다. 200이 출력됩니다.
+    console.log(z); // console.log() 함수로 변수 z의 값을 콘솔에 출력합니다. 이 경우 출력되는 값은 "javascript" 문자열입니다.
+}</code></pre>
+                <div class="reuslt">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            100<br />
+                            200<br />
+                            javascript
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- sample01 -->
+
+            <script src="assets/js/highlight.min.js"></script>
+            <script>hljs.highlightAll();</script>
+            <script>
+            </script>
 </body>
+
 </html>
