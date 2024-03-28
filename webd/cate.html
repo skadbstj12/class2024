@@ -65,8 +65,8 @@
             border: 1px solid #1b1010;
         }
 
-        #side nav ul li.avtive a {
-            background-color: #000;
+        #side nav ul li.active a {
+            background-color: #ff8888;
             color: #fff;
             border-color: #000;
         }
@@ -74,7 +74,7 @@
         #content {
             width: calc(100% - 266px);
             height: 100vh;
-            background-color: #ff8888;
+            background-color: #fcfcfc;
         }
 
         #content iframe {
@@ -161,10 +161,27 @@
             </nav>
         </aside>
         <main id="content">
-            <iframe src="index.html" frameborder="0"></iframe>
+            <iframe src="layoutA-1.html" frameborder="0"></iframe>
 
         </main>
     </div>
+    <script>
+        document.querySelectorAll("nav ul li").forEach((li) => {
+            li.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                let href = li.querySelector("a").getAttribute("href");
+
+                document.querySelector("#content iframe").setAttribute("src", href)
+
+                // 모든 active 삭제
+                document.querySelectorAll("nav ul li").forEach(el => {
+                    el.classList.remove("active");
+                })
+                li.classList.add("active")
+            });
+        });
+    </script>
 
 </body>
 

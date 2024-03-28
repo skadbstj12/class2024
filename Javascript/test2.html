@@ -9,59 +9,89 @@
 
 <body>
     <script>
-        //선언
+        //(화살표)선언
         {
-            function test2() {
+            test2 = () => {
                 console.log("선언");
             }
             test2();
         }
-        //익명
+        //(화살표)익명
         {
-            const test2 = function () {
+            const test2 = () => {
                 console.log("익명");
             }
             test2()
         }
-        //매개
+        //(화살표)매개
         {
-            function test2(str) {
+            test2 = (str) => {
                 console.log(str);
             }
             test2("매개");
         }
-        //리턴
+        //(화살표)리턴
         {
-            function test2() {
+            test2 = () => {
                 return "리턴";
             }
             console.log(test2());
         }
-        //매개리턴
+        //(화살표)매개리턴
         {
-            function test2(str) {
+            test2 = (str) => {
                 return (str);
             }
-            console.log(test2("매개리턴값"));
+            console.log(test2("매개리턴"));
         }
-        //(화살표)선언
-        //(화살표)익명
-        //(화살표)매개
-        //(화살표)리턴
-        //(화살표)매개리턴
         //for
+        {
+            const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+            for (let i = 0; i < num.length; i++) {
+                console.log(num[i])
+            };
+        }
         //foreach
         {
-            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            const num = [1, 2, 3, 4, 5, 6, 7, 8,];
 
-            console.log(test("forEach"))
-            arr.forEach(function (e) {
+            num.forEach(function (e) {
                 console.log(e);
             });
         }
         //forof
+        {
+            const num = [1, 2, 3, 4, 5, 6, 7, 8]
+
+            for (let i of num) {
+                console.log(i)
+            };
+        }
         //forin
+        {
+            const num = [1, 2, 3, 4, 5, 6, 7, 8]
+
+            for (let i in num) {
+                console.log(num[i])
+            };
+        }
         //formap
+        {
+            const num = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            num.map(function (e) {
+                console.log(e);
+            })
+        }
+        //filter
+        {
+            const num = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            num.filter(function (e) {
+                console.log(e)
+            })
+        }
     </script>
 </body>
 

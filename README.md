@@ -21,6 +21,12 @@
 - 선택자(querySelector)
 - 메서드(innerText(), classList, addEventListenner, if문)
 
+[퀴즈02] (https://skadbstj12.github.io/class2024/quiz/quiz02.html) 
+- 배열, 객체
+- 선택자 (querySelector())
+- 반복문 (for(), forEach())
+- 메서드(innerHTML(), classList.add, addEventLsistenner, if문)
+
 
 ### vscode 확장 프로그램
 Live Server: 웹페이지 미리보기   
