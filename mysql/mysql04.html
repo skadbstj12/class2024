@@ -36,8 +36,7 @@
                 <div class="info">
                     create table 이름;
                 </div>
-                <pre><code class="language-js">
-create table members(
+                <pre><code class="language-js">create table members(
 memberID int(10) unsigned auto_increment,
 youName varchar(10) NOT NULL,
 youPass varchar(10) NOT NULL,
@@ -108,8 +107,7 @@ Query OK, 0 rows affected (0.01 sec)</code></pre>
                             SELECT 필드명 FROM [테이블,앨리어스] JOIN [테이블,엘리어스] ON+
                         </div>
 
-                        <pre><code class="language-js">
-                            SELECT m.youName, m.youAge, r.youText, r.regTime FROM members m JOIN reviews r ON (m.memberID = r.memberID);
+                        <pre><code class="language-js">SELECT m.youName, m.youAge, r.youText, r.regTime FROM members m JOIN reviews r ON (m.memberID = r.memberID);
 +---------+--------+---------------------------------------+------------+
 | youName | youAge | youText                               | regTime    |
 +---------+--------+---------------------------------------+------------+

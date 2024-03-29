@@ -450,16 +450,22 @@ SELECT * FROM members LIMIT 10, 5;
 
                         <h4>나이 25살 이상, 성이 황씨인 사람</h4>
                         <div class="info">
-                            SELECT * FROM members WHERE youAge > 25 AND youName "황&";
+                            SELECT * FROM members WHERE youAge > 24 AND youName LIKE '황%';
                         </div>
-                        <pre><code class="language-js"></code></pre>
+                        <pre><code class="language-js">mysql> SELECT * FROM members WHERE youAge > 24 AND youName LIKE '황%';
++----------+---------+---------+--------+----------+------------+
+| memberID | youName | youPass | youAge | youBirth | regTime    |
++----------+---------+---------+--------+----------+------------+
+|        1 | 황상연  | 1234    |     33 |   990304 | 1023958375 |
++----------+---------+---------+--------+----------+------------+
+1 row in set (0.00 sec)</code></pre>
 
                         <h4>나이 30살 이상, memberID가 2 또는 15인 멤버</h4>
                         <div class="info">
                             SELECT * FROM members WHERE youAge > 30 AND memberID = 2 OR memberID = 15;
                         </div>
-                        <div class="info"> SELECT * FROM members WHERE youAge>=30 and (memberID in(2,15));</div>
-                        <pre><code class="language-js">SELECT * FROM members WHERE youAge>=30 and (memberID in(2,15));
+                        <div class="info"> SELECT * FROM members WHERE youAge>=30 AND (memberID IN(2,15)); </div>
+                        <pre><code class="language-js">SELECT * FROM members WHERE youAge>=30 AND (memberID = 2 OR memberID = 15);
 +----------+---------+---------+--------+----------+------------+
 | memberID | youName | youPass | youAge | youBirth | regTime    |
 +----------+---------+---------+--------+----------+------------+
