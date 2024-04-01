@@ -107,7 +107,7 @@ a {
 #header nav li a {
     padding: 10px;
     display: inline-block;
-    width: 35px;
+    width: auto;
     height: 35px;
     border: 1px solid #fff;
     text-align: center;
@@ -119,6 +119,7 @@ a {
 #header nav li.active a {
     background-color: #fff;
     color: #000;
+
 }
 
 /* body */
@@ -162,10 +163,10 @@ body::after {
     text-underline-position: under;
 }
 
-/* quiz__warp */
+/* quiz__wrap */
 .quiz__wrap {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -185,6 +186,8 @@ body::after {
 
 .quiz__main .question {
     margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 1.4;
 }
 
 .quiz__main .question em {

@@ -75,9 +75,11 @@
                     선언적 함수(Declarative Function)는 JavaScript에서 함수를 선언하는 기본적인 방법 중 하나입니다. 이 방법은 가장 간단하고 직관적인 방식으로 함수를 정의할
                     수 있도록 해줍니다.
                 </p>
-                <pre><code>function func(){
+                <pre><code>{
+function func(){
 console.log("01. 함수가 실행되었습니다.");
-} func();</code></pre>
+} func();
+}</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
@@ -94,9 +96,12 @@ console.log("01. 함수가 실행되었습니다.");
                     익명 함수(Anonymous Function)는 이름이 없는 함수를 가리킵니다. 즉, 함수를 정의할 때 함수 이름을 붙이지 않고 만드는 것을 말합니다. 익명 함수는 주로 다른
                     함수의 매개변수로 전달되거나, 변수에 할당되는 등의 상황에서 사용됩니다.
                 </p>
-                <pre><code>const func = function () {
+                <pre><code>{
+const func = function () {
 console.log("02. 함수가 실행되었습니다.");
-};func();</code></pre>
+}
+func();
+}</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
@@ -112,7 +117,8 @@ console.log("02. 함수가 실행되었습니다.");
                 <p>
                     매개변수 함수(Parameter Function)는 다른 함수의 매개변수로서 전달되는 함수를 가리킵니다.
                 </p>
-                <pre><code>// 선언적 함수
+                <pre><code>{
+// 선언적 함수
 function func(str) {
 console.log(str);
 }func("03. 함수가 실행되었습니다.");
@@ -120,7 +126,8 @@ console.log(str);
 // 익명 함수
 const func1 = function (str) {
 console.log(str);
-}func1("03. 함수가 실행되었습니다.");</code></pre>
+}func1("03. 함수가 실행되었습니다.")
+};</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>

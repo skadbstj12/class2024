@@ -23,6 +23,7 @@
                 <li><a href="quiz04.html">4</a></li>
                 <li><a href="quiz05.html">5</a></li>
                 <li><a href="quiz06.html">6</a></li>
+                <li><a href="quiztest.html">검정고시기출</a></li>
             </ul>
         </nav>
     </header>
@@ -288,7 +289,7 @@
         // 정답 확인
         quizConfirm.forEach(function (btn, num,) {
             btn.addEventListener("click", function () {
-                const userAnswer = quizInput[num].value //사용자가 정당
+                const userAnswer = quizInput[num].value //사용자가 정답
                 const correctAnswer = quizInfo[num].infoAnswer //정답지의 정답
 
                 if (userAnswer == correctAnswer) {

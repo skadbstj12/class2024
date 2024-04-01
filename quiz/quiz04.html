@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>퀴즈 04</title>
     <link rel="stylesheet" href="assets/css/quiz.css">
+
+
 </head>
 
 <body>
@@ -21,20 +23,170 @@
                 <li class="active"><a href="quiz04.html">4</a></li>
                 <li><a href="quiz05.html">5</a></li>
                 <li><a href="quiz06.html">6</a></li>
+                <li><a href="quiztest.html">검정고시기출</a></li>
             </ul>
         </nav>
     </header>
     <!-- //header -->
 
     <main id="main">
-
+        <div class="quiz__wrap">
     </main>
     <!-- //main -->
 
     <footer id="footer">
-
+        <a href="mailto:nys060121@naver.com">nys060121@naver.com</a>
     </footer>
     <!-- //footer -->
+
+
+
+    <script>
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+
+        // 문제 정보
+        const quizInfo = [
+            {
+                date: "2021년 1회",
+                type: "정보처리기능사",
+                num: "01",
+                question: "명령어 형식(instruction format)에서 첫 번째 바이트에 기억되는 것은?",
+                choices:
+                {
+                    1: "operand",
+                    2: "length",
+                    3: "question mark",
+                    4: "opcode"
+                },
+                answer: "4",
+                desc: "명령어의 구성명령어 코드부 + 주소부 (한글),<br> OP-code + Operand (영문)"
+            },
+            {
+                date: "2021년 2회",
+                type: "정보처리기능사",
+                num: "02",
+                question: "불린(Boolean) 대수의 정리 중 틀린 것은?",
+                choices:
+                {
+                    1: "1·A=A",
+                    2: "1+A=A",
+                    3: "0+A=A",
+                    4: "0·A=0"
+                },
+                answer: "2",
+                desc: "1 + A = 1 입니다."
+            },
+            {
+                date: "2021년 3회",
+                type: "정보처리기능사",
+                num: "03",
+                question: "1개의 입력선으로 들어오는 정보를 2n개의 출력선 중 1개를 선택하여 출력하는 회로는?",
+                choices:
+                {
+                    1: "디멀티플렉서",
+                    2: "멀티플렉서",
+                    3: "인코더",
+                    4: "디코더"
+                },
+                answer: "1",
+                desc: "티 플렉서 디멀티플렉서는 1개의 입력선으로 들어오는 정보를 2^n개의 출력선 중 1개를 선택하여 출력하는 회로이다. 2^n개의 출력선 중 1개의 선을 선택하기 위해 n개의 선택선을 이용한다."
+            },
+            {
+                date: "2021년 4회",
+                type: "정보처리기능사",
+                num: "04",
+                question: "실행중인 프로그램이나 시스템을 중지시킬 수 있는 수행중단기능(break on)을 설정할 수 있는 도스 파일은?",
+                choices:
+                {
+                    1: "config.sys",
+                    2: "Immediate Mode",
+                    3: "Implied Mode",
+                    4: "Indirect Mode"
+                },
+                answer: "1",
+                desc: "명령어의 구성명령어 코드부 + 주소부 (한글),<br> OP-code + Operand (영문)"
+            },
+            {
+                date: "2021년 5회",
+                type: "정보처리기능사",
+                num: "05",
+                question: "2진수의 1011의 1의 보수는?",
+                choices: {
+                    1: "1000",
+                    2: "0010",
+                    3: "1010",
+                    4: "0100"
+                },
+                answer: "4",
+                desc: "1의 보수는 1은 0으로, 0은 1로 바꾸어 주면 답이 됩니다."
+            },
+            {
+                date: "2021년 6회",
+                type: "정보처리 기능사",
+                num: "06",
+                question: "10개 국(station)을 서로 망형 통신망을 구성시 최소로 필요한 통신 회선 수는?",
+                choices: {
+                    1: "25",
+                    2: "15",
+                    3: "45",
+                    4: "35"
+                },
+                answer: "3",
+                desc: "망형공식 : n(n-1)/2 입니다."
+            }
+
+        ]
+
+        //문제 출력
+        const updateQuiz = () => {
+            const quizArray = [];
+
+            quizInfo.forEach((quiz, index) => {
+                quizArray.push(`
+                <div class="quiz">
+                <div class="quiz__header">${quiz.date} ${quiz.type}
+                </div>
+                <div class="quiz__main">
+                    <div class="question">${index + 1}. ${quiz.question}
+                    </div>
+                    <div class="choices">
+                        <label for="choice1-${index}">
+                            <input type="radio" id="choice1-${index}" name="choice-${index}" value="1">
+                            <span>${quiz.choices[1]}</span>
+                        </label>
+                        <label for="choice2-${index}">
+                            <input type="radio" id="choice2-${index}" name="choice-${index}" value="2">
+                            <span>${quiz.choices[2]}</span>
+                        </label>
+                        <label for="choice3-${index}">
+                            <input type="radio" id="choice3-${index}" name="choice-${index}" value="3">
+                            <span>${quiz.choices[3]}</span>
+                        </label>
+                        <label for="choice4-${index}">
+                            <input type="radio" id="choice4-${index}" name="choice-${index}" value="4">
+                            <span>${quiz.choices[4]}</span>
+                        </label>
+                        
+
+                    </div>
+                    <div class="answer none">${quiz.answer}</div>
+                    <div class="desc none">${quiz.desc}</div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                </div>
+            </div>
+                `)
+                quizWrap.innerHTML = quizArray.join("");
+
+            });
+
+
+            //문제 출력
+        }
+        updateQuiz();
+    </script>
 </body>
 
 </html>
