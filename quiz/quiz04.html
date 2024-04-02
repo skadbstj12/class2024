@@ -50,7 +50,6 @@
             {
                 date: "2021년 1회",
                 type: "정보처리기능사",
-                num: "01",
                 question: "명령어 형식(instruction format)에서 첫 번째 바이트에 기억되는 것은?",
                 choices:
                 {
@@ -65,7 +64,6 @@
             {
                 date: "2021년 2회",
                 type: "정보처리기능사",
-                num: "02",
                 question: "불린(Boolean) 대수의 정리 중 틀린 것은?",
                 choices:
                 {
@@ -75,12 +73,11 @@
                     4: "0·A=0"
                 },
                 answer: "2",
-                desc: "1 + A = 1 입니다."
+                desc: "1+A=1 입니다."
             },
             {
                 date: "2021년 3회",
                 type: "정보처리기능사",
-                num: "03",
                 question: "1개의 입력선으로 들어오는 정보를 2n개의 출력선 중 1개를 선택하여 출력하는 회로는?",
                 choices:
                 {
@@ -95,7 +92,6 @@
             {
                 date: "2021년 4회",
                 type: "정보처리기능사",
-                num: "04",
                 question: "실행중인 프로그램이나 시스템을 중지시킬 수 있는 수행중단기능(break on)을 설정할 수 있는 도스 파일은?",
                 choices:
                 {
@@ -124,7 +120,6 @@
             {
                 date: "2021년 6회",
                 type: "정보처리 기능사",
-                num: "06",
                 question: "10개 국(station)을 서로 망형 통신망을 구성시 최소로 필요한 통신 회선 수는?",
                 choices: {
                     1: "25",
@@ -146,25 +141,26 @@
                 quizArray.push(`
                 <div class="quiz">
                 <div class="quiz__header">${quiz.date} ${quiz.type}
+                
                 </div>
                 <div class="quiz__main">
                     <div class="question">${index + 1}. ${quiz.question}
                     </div>
                     <div class="choices">
-                        <label for="choice1-${index}">
-                            <input type="radio" id="choice1-${index}" name="choice-${index}" value="1">
+                        <label for="choice${index}-1">
+                            <input type="radio" id="choice${index}-1" name="choice-${index}" value="1">
                             <span>${quiz.choices[1]}</span>
                         </label>
-                        <label for="choice2-${index}">
-                            <input type="radio" id="choice2-${index}" name="choice-${index}" value="2">
+                        <label for="choice${index}-2">
+                            <input type="radio" id="choice${index}-2" name="choice-${index}" value="2">
                             <span>${quiz.choices[2]}</span>
                         </label>
-                        <label for="choice3-${index}">
-                            <input type="radio" id="choice3-${index}" name="choice-${index}" value="3">
+                        <label for="choice${index}-3">
+                            <input type="radio" id="choice${index}-3" name="choice-${index}" value="3">
                             <span>${quiz.choices[3]}</span>
                         </label>
-                        <label for="choice4-${index}">
-                            <input type="radio" id="choice4-${index}" name="choice-${index}" value="4">
+                        <label for="choice${index}-4">
+                            <input type="radio" id="choice${index}-4" name="choice-${index}" value="4">
                             <span>${quiz.choices[4]}</span>
                         </label>
                         
@@ -181,11 +177,47 @@
                 quizWrap.innerHTML = quizArray.join("");
 
             });
-
-
-            //문제 출력
         }
-        updateQuiz();
+
+        // 정답 확인
+        const answerQuiz = (index) => {
+            const quizChecked = quizWrap.querySelectorAll(`.quiz__main .choices input[name="choice-${index}"]:checked`);
+            const quizElement = quizWrap.querySelectorAll(".quiz")[index];
+            const answerElement = quizWrap.querySelectorAll(".answer")[index];
+            const descElement = quizWrap.querySelectorAll(".desc")[index];
+            const confirmElement = quizWrap.querySelectorAll(".confirm")[index];
+
+            if (quizChecked.length > 0) {     // 사용자가 체크한것
+                const userAnswer = quizChecked[0].value;
+                if (userAnswer === quizInfo[index].answer) {
+                    quizElement.classList.add("good");  // O 표시
+                    descElement.classList.remove("none")
+                    confirmElement.classList.add("none")
+                } else {
+                    quizElement.classList.add("bad");  // X 표시
+                    descElement.classList.remove("none")    //해설 보기
+                    answerElement.classList.remove("none")  //정답 보기
+                    confirmElement.classList.add("none")    //정답 버튼 삭제
+                }
+
+            } else {
+                alert("보기를 선택해주세요!! 😎");
+            }
+        }
+
+
+        // 페이지가 로드된 후 실행
+        document.addEventListener("DOMContentLoaded", () => {
+            // 문제 출력
+            updateQuiz();
+
+            // 정답 확인
+            quizWrap.querySelectorAll(".confirm").forEach((button, index) => {
+                button.addEventListener("click", () => {
+                    answerQuiz(index);
+                })
+            })
+        })
     </script>
 </body>
 
