@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>퀴즈 05</title>
     <link rel="stylesheet" href="assets/css/quiz.css">
+
+
 </head>
 
 <body>
@@ -28,14 +30,158 @@
     <!-- //header -->
 
     <main id="main">
-
+        <div class="quiz__wrap">
     </main>
     <!-- //main -->
 
     <footer id="footer">
-
+        <a href="mailto:nys060121@naver.com">nys060121@naver.com</a>
     </footer>
     <!-- //footer -->
+
+
+
+    <script>
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+
+
+        // 문제 정보
+        const quizInfo = [
+            {
+                date: "2017년 상시",
+                type: "정보처리기능사",
+                question: "피변조파로 부터 원래의 신호파를 만드는 것을 무엇이라고 하는가?",
+                choices: ["발진", "정류", "증폭", "복조"],
+                answer: "4",
+                desc: "피변조파는 변조된 신호를 의미합니다. 변조된 신호를 원래의 신호로 만드는 것을 복조라고 합니다."
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "반가산기(Half-Adder)의 논리회로도에서 자리올림이 발생하는 회로는?",
+                choices: ["OR", "NOT", "ExclusiveOR", "AND"],
+                answer: "4",
+                desc: "반가산기 구성: S = A XOR B, C = A AND B, <br>S : SUM(합), C : Carry(자리올림)"
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "EBCDIC 코드는 몇개의 Zone bit를 갖는가?",
+                choices: ["1", "2", "3", "4"],
+                answer: "4",
+                desc: "총 코드비트<br>BCD 코드(6)<br>ASCII 코드(7)<br>EBCDIC 코드(8)<br>모든 코드의 디지트 비트는 4임<br>따라서 각 코드의 존비트는 코드총비트 - 4 입니다. 즉 8-4 = 4 입니다<br>"
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "다음 중 제어장치에서 명령어의 실행 사이클에 해당하지 않는 것은?",
+                choices: ["인출 주기(fetch cycle)", "직접 주기(direct cycle)", "간접 주기(indirect cycle)", "실행 주기(execute cycle)"],
+                answer: "2",
+                desc: "제어장치의 명령어 실행 사이클은 기계주기(Machine Cycle)라 하며, 다음과 같다..<br> ① 인출사이클(Fetch Cycle) - 중앙처리장치가 기억장치에서 다음에 실행할 명령을 가져오는 주기)<br>② 명령사이클(Instruction Cycle) - 기억장치의 번지를 확인하여 명령을 읽어 낼 때까지의 단계<br>③ 실행사이클(Execution Cycle) - 명령에 따라 필요한 신호를 만들어 결과를 얻을 때까지의단계"
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "일반적으로 명령어의 패치 사이클 중에는 현재 수행하고 있는 명령어의 위치를 가리키고, 실행 사이클 중에는 바로 다음에 실행할 명령어의 위치를 가리키는 Register는?",
+                choices: ["프로그램 카운터(program counter)", "누산기(accumulator)", "명령어 레지스터(instruction register)", "범용 레지스터(general purpose register)"],
+                answer: "1",
+                desc: "반가산기 구성: S = A XOR B, C = A AND B, <br>S : SUM(합), C : Carry(자리올림)"
+            },
+        ]
+
+
+        //변수
+        let currentIndex = 0; // 현재 문제에 대한 값
+        //문제 출력
+        const updateQuiz = (index) => {
+            let quizWrapTag = `
+            <div class="quiz">
+                <div class="quiz__header">${quizInfo[index].date} ${quizInfo[index].type}</div>
+                <div class="quiz__main">
+                    <div class="question">${index + 1}. ${quizInfo[index].question}</div>
+                    <div class="choices">
+                        <label for="choice1">
+                            <input type="radio" id="choice1" name="choice" value="1">
+                            <span>${quizInfo[index].choices[0]}</span>
+                        </label>
+                        <label for="choice2">
+                            <input type="radio" id="choice2" name="choice" value="2">
+                            <span>${quizInfo[index].choices[1]}</span>
+                        </label>
+                        <label for="choice3">
+                            <input type="radio" id="choice3" name="choice" value="3">
+                            <span>${quizInfo[index].choices[2]}</span>
+                        </label>
+                        <label for="choice4">
+                            <input type="radio" id="choice4" name="choice" value="4">
+                            <span>${quizInfo[index].choices[3]}</span>
+                        </label>
+
+                    </div>
+                    <div class="answer none ">${quizInfo[index].answer}</div>
+                    <div class="desc none">${quizInfo[index].desc}</div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                    <button class="next none">다음 문제</button>
+                    </div>
+                    </div>
+            `
+            quizWrap.innerHTML = quizWrapTag;
+
+            // 선택자
+            const quizConfirm = quizWrap.querySelector(".confirm");
+            const quizNext = quizWrap.querySelector(".next");
+
+            //정답 버튼을 클릭
+            quizConfirm.addEventListener("click", () => {
+                const quizChecked = quizWrap.querySelector("input[name='choice']:checked"); // 사용자가 클릭한 정답 확인
+
+                if (quizChecked) {
+                    const userAnswer = quizChecked.value;    //사용자가 클릭한 정답
+                    const quizAnswer = quizInfo[currentIndex].answer    //정답지의 정답
+                    const quizElement = quizWrap.querySelector(".quiz");
+                    const descElement = quizWrap.querySelector(".desc");
+                    const answerElement = quizWrap.querySelector(".answer");
+
+                    // 사용자 정답과 정답지 정답을 비교
+                    if (userAnswer === quizAnswer) {
+                        // O
+                        quizElement.classList.add("good");
+                        quizNext.classList.remove("none");
+                    } else {
+                        // X
+                        quizElement.classList.add("bad");
+                        answerElement.classList.remove("none");
+                    }
+                    descElement.classList.remove("none");   //설명 추가
+                    quizConfirm.classList.add("none");      //정답 버튼 삭제
+                    quizNext.classList.remove("none");      //다음 버튼 추가
+
+                } else {
+                    alert("답을 선택해주세요.");
+                }
+
+            })
+
+            // 다음 문제 버튼을 클릭
+            quizNext.addEventListener("click", () => {
+                if (currentIndex < quizInfo.length - 1) {
+                    currentIndex++;             // 문제 번호 증가
+                    updateQuiz(currentIndex);   // 퀴즈 반영
+                } else {
+                    alert("퀴즈가 종료되었습니다.");
+                }
+            })
+        }
+
+
+        //페이지가 로드된 후 실행
+        document.addEventListener("DOMContentLoaded", () => {
+            updateQuiz(currentIndex);
+        });
+    </script>
 </body>
 
 </html>
