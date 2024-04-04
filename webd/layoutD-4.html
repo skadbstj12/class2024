@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #aside {}
+
+        #logo {
+            width: 200px;
+            height: 100px;
+            background-color: #582121;
+        }
+
+        #menu {
+            width: 200px;
+            height: 750px;
+            background-color: #3b3636;
+        }
+
+        #main {
+            width: calc(100% - 200px);
+            height: 850px;
+            background-color: #ccc;
+        }
+
+        #slider {
+            width: 100%;
+            height: 400px;
+            background-color: #7a1616;
+        }
+
+        #link {
+            width: 100px;
+            height: 200px;
+            background-color: #b2b2b2;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        #banner {
+            width: 100%;
+            height: 200px;
+            background-color: #c99797;
+        }
+
+        #contents {
+            width: 100%;
+            height: 250px;
+            background-color: #a75050;
+            display: flex;
+        }
+
+        #contents-1 {
+            width: 50%;
+            height: 250px;
+            background-color: #9e0e0e;
+        }
+
+        #contents-2 {
+            width: 50%;
+            height: 250px;
+            background-color: #e93636;
+        }
+
+        #footer {
+            width: 100%;
+            height: 100px;
+            background-color: #eee;
+            display: flex;
+        }
+
+        #logo2 {
+            width: 200px;
+            height: 100px;
+            background-color: #867676;
+        }
+
+        #copy {
+            width: calc(80% - 200px);
+            height: 100px;
+            background-color: #965353;
+
+        }
+
+        #copy-1 {
+            width: 100%;
+            height: 50px;
+            background-color: #c00d0d;
+        }
+
+        #copy-2 {
+            width: 100%;
+            height: 50px;
+            background-color: #421010;
+        }
+
+        #SNS {
+            width: 20%;
+            height: 100px;
+            background-color: #4b3939;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <aside id="aside">
+            <section id="logo"></section>
+            <section id="menu"></section>
+        </aside>
+        <main id="main">
+            <section id="slider">
+                <div id="link"></div>
+            </section>
+            <section id="banner"></section>
+            <section id="contents">
+                <section id="contents-1"></section>
+                <section id="contents-2"></section>
+            </section>
+        </main>
+        <footer id="footer">
+            <section id="logo2"></section>
+            <section id="copy">
+                <section id="copy-1"></section>
+                <section id="copy-2"></section>
+            </section>
+            <section id="SNS"></section>
+        </footer>
+    </div>
+</body>
+
+</html>

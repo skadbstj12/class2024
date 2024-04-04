@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 1000px;
+            display: flex;
+        }
+
+        #aside {
+            width: 20%;
+            height: 650px;
+            background-color: #ccc;
+        }
+
+        #aside .logo {
+            height: 100px;
+            background-color: #352626;
+        }
+
+        #aside .nav {
+            height: 550px;
+            background-color: #5e2424;
+        }
+
+        #main {
+            width: 80%;
+        }
+
+        #slider {
+            height: 350px;
+            background-color: #817474;
+        }
+
+        #contents {
+            height: 200px;
+            background-color: #a88282;
+            display: flex;
+        }
+
+        #contents .content-1 {
+            width: 33%;
+            height: 200px;
+            background-color: #461414;
+        }
+
+        #contents .content-2 {
+            width: 33%;
+            height: 200px;
+            background-color: #723e3e;
+        }
+
+        #contents content-3 {
+            width: 33%;
+            height: 200px;
+            background-color: #b12525;
+        }
+
+
+        #footer {
+            height: 100px;
+            background-color: #c2b1b1;
+            display: flex;
+        }
+
+        #footer .footer-1 {
+            width: 30%;
+            height: 100px;
+            background-color: #a07070;
+        }
+
+        #footer .footer-2 {
+            width: 70%;
+            height: 50px;
+            background-color: #864242;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <aside id="aside">
+            <h1 class="logo"></h1>
+            <nav class="nav"></nav>
+        </aside>
+        <main id="main">
+            <article id="slider"></article>
+            <section id="contents">
+                <div class="content-1"></div>
+                <div class="content-2"></div>
+                <div class="content-3"></div>
+            </section>
+            <footer id="footer">
+                <div class="footer-1"></div>
+                <div class="footer-2"></div>
+                <div class="footer-3"></div>
+            </footer>
+
+        </main>
+    </div>
+</body>
+
+</html>

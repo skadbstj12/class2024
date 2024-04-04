@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #aside {}
+
+        #logo {
+            width: 200px;
+            height: 100px;
+            background-color: #582121;
+        }
+
+        #menu {
+            width: 200px;
+            height: 750px;
+            background-color: #3b3636;
+        }
+
+        #main {
+            width: calc(100% - 200px);
+            height: 850px;
+            background-color: #ccc;
+        }
+
+        #slider {
+            width: 100%;
+            height: 400px;
+            background-color: #7a1616;
+        }
+
+        #link {
+            width: 200px;
+            height: 400px;
+            background-color: #b3b3b3;
+            position: absolute;
+            right: 0;
+            top: 0;
+
+        }
+
+        #banner {
+            width: 100%;
+            height: 450px;
+            background-color: #493939;
+            display: flex;
+        }
+
+        #banner-1 {
+            width: 50%;
+            height: 450px;
+            background-color: #612929;
+        }
+
+        #banner-2 {
+            width: 50%;
+            height: 450px;
+            background-color: #5e4646;
+        }
+
+        #footer {
+            width: 100%;
+            height: 100px;
+            background-color: #eee;
+            display: flex;
+        }
+
+        #logo2 {
+            width: 200px;
+            height: 100px;
+            background-color: #c9b2b2;
+        }
+
+        #copy {
+            width: calc(80% - 200px);
+            height: 100px;
+            background-color: #965353;
+        }
+
+        #familly {
+            width: 20%;
+            height: 100px;
+            background-color: #793232;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <aside id="aside">
+            <section id="logo"></section>
+            <section id="menu"></section>
+        </aside>
+        <main id="main">
+            <section id="slider">
+                <div id="link"></div>
+            </section>
+            <section id="banner">
+                <section id="banner-1"></section>
+                <section id="banner-2"></section>
+            </section>
+        </main>
+        <footer id="footer">
+            <section id="logo2"></section>
+            <section id="copy"></section>
+            <section id="familly"></section>
+        </footer>
+    </div>
+</body>
+
+</html>

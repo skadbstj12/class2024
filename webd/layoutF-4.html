@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 100%;
+        }
+
+        #header {
+            width: 100%;
+            height: 100px;
+        }
+
+        #header .container {
+            display: flex;
+        }
+
+        #header .container .logo {
+            width: 20%;
+            height: 100px;
+            background-color: #e0e0e0;
+        }
+
+        #header .container .nav {
+            width: 80%;
+            height: 100px;
+            background-color: #a9a9a9;
+        }
+
+        #slider {
+            width: 100%;
+            height: 350px;
+            background-color: #a8a1a1;
+            position: relative;
+        }
+
+        #slider .links {
+            width: 1340px;
+            height: 100px;
+            background-color: #000;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+
+        #contents {
+            width: 100%;
+        }
+
+        #contents .container .banner {
+            height: 100px;
+            background-color: #7a6f6f;
+        }
+
+        #contents .container .notice {
+            width: 100%;
+            height: 300px;
+            background-color: #836a6a;
+            display: flex;
+        }
+
+        #contents .container .notice .notice-1 {
+            width: 50%;
+            height: 300px;
+            background-color: #852828;
+        }
+
+        #contents .container .notice .notice-2 {
+            width: 50%;
+            height: 300px;
+            background-color: #694343;
+        }
+
+
+
+
+        #footer {
+            width: 100%;
+            height: 120px;
+            display: flex;
+        }
+
+        #footer .container {
+            display: flex;
+        }
+
+        #footer .container .logo {
+            width: 25%;
+            height: 120px;
+            background-color: #918484;
+        }
+
+        #menu {
+            width: 80%;
+            height: 60px;
+            background-color: #693b3b;
+        }
+
+        #copy {
+            width: 80%;
+            height: 60px;
+            background-color: #530a0a;
+        }
+
+        .container {
+            width: 1340px;
+            margin: 0 auto;
+            height: inherit;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        #footer .container .menu {
+            width: 50%;
+            height: 120px;
+            background-color: #235231;
+        }
+
+        #footer .container .copy2 {
+            width: 25%;
+            height: 120px;
+            background-color: #ac7777;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="container">
+                <h1 class="logo"></h1>
+                <nav class="nav"></nav>
+            </div>
+        </header>
+        <!--//header-->
+        <article id="slider">
+            <div class="links"></div>
+        </article>
+        <!--//slider-->
+        <section id="contents">
+            <div class="container">
+                <article class="banner"></article>
+                <article class="notice">
+                    <article class="notice-1"></article>
+                    <article class="notice-2"></article>
+                </article>
+            </div>
+        </section>
+        <!--//content-->
+        <footer id="footer">
+            <div class="container">
+                <article class="logo"></article>
+                <article class="menu"></article>
+                <article class="copy2"></article>
+            </div>
+
+        </footer>
+        <!--//footer-->
+    </div>
+</body>
+
+</html>
