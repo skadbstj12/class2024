@@ -11,9 +11,9 @@
 
  [CSS](https://skadbstj12.github.io/class2024/css/index.html)
 
- [Githup](https://skadbstj12.github.io/class2024/githup/index.html)
+ [Githup](https://github.com/skadbstj12)
 
- [Webd] (https://skadbstj12.github.io/class2024/webd/index.html)
+ [Webd](https://skadbstj12.github.io/class2024/webd/index.html)
 
 ## 퀴즈 게임
 [퀴즈게임](https://skadbstj12.github.io/class2024/quiz/index.html) 
