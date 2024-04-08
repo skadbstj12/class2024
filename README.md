@@ -41,7 +41,7 @@
 - 반복문(forEach())
 - 메서드(join(), push(), innerHTML())
 
-
+ddd
 
 ### vscode 확장 프로그램
 Live Server: 웹페이지 미리보기   
