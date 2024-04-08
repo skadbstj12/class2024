@@ -27,6 +27,7 @@
     <!-- //header -->
     <main id="main">
         <div class="quiz__wrap"></div>
+        <div class="quiz__check">정답 확인</div>
     </main>
     <!-- //main -->
     <footer id="footer">
@@ -36,8 +37,13 @@
     <script>
         // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
+        const quizCheck = document.querySelector(".quiz__check");
+
+
         // 문제 정보
         let quizInfo = [];
+
+
         // 문제 가져오기
         const fetchQuiz = () => {
             fetch("https://kingsong97.github.io/class2024/json/gineungsaJC2005_02.json")
@@ -64,11 +70,13 @@
                         // 결과값 출력
                         return formattedQuiz;
                     });
-                    console.log(quizInfo);
+                    //console.log(quizInfo);
                     // 문제출력
                     updateQuiz();
                 })
         }
+
+
         // 문제 출력
         const updateQuiz = () => {
             const quizArray = [];
@@ -80,24 +88,24 @@
                             <div class="question">${index + 1}. ${quiz.question}</div>
                             <div class="choices">
                                 <label for="choice${index}-1">
-                                    <input type="radio" id="choice${index}-1" name="choice-${index}" value="1">
+                                    <input type="radio" id="choice${index}-1" name="choice-${index}" value="${quiz.choices[0]}">
                                     <span>${quiz.choices[0]}</span>
                                 </label>
                                 <label for="choice${index}-2">
-                                    <input type="radio" id="choice${index}-2" name="choice-${index}" value="2">
+                                    <input type="radio" id="choice${index}-2" name="choice-${index}" value="${quiz.choices[1]}">
                                     <span>${quiz.choices[1]}</span>
                                 </label>
                                 <label for="choice${index}-3">
-                                    <input type="radio" id="choice${index}-3" name="choice-${index}" value="3">
+                                    <input type="radio" id="choice${index}-3" name="choice-${index}" value="${quiz.choices[2]}">
                                     <span>${quiz.choices[2]}</span>
                                 </label>
                                 <label for="choice${index}-4">
-                                    <input type="radio" id="choice${index}-4" name="choice-${index}" value="4">
+                                    <input type="radio" id="choice${index}-4" name="choice-${index}" value="${quiz.choices[3]}">
                                     <span>${quiz.choices[3]}</span>
                                 </label>
                             </div>
-                            <div class="answer">${quiz.answer}</div>
-                            <div class="desc">${quiz.desc}</div>
+                            <div class="answer none">${quiz.answer}</div>
+                            <div class="desc none">${quiz.desc}</div>
                         </div>
                     </div>
                 `)
@@ -105,6 +113,42 @@
             quizWrap.innerHTML = quizArray.join("");
         }
         fetchQuiz();
+
+
+        //정답 출력
+        quizCheck.addEventListener("click", () => {
+            const quizElements = document.querySelectorAll(".quiz");
+            let correctConunt = 0; //맞은 문제의 개수를 세는 변수
+
+            quizElements.forEach((quizElement, index) => {
+                const quizChecked = quizElement.querySelector(`input[name="choice-${index}"]:checked`);  //체크한 정답
+                const quizAnswer = quizElement.querySelector(".answer");
+                const quizDesc = quizElement.querySelector(".desc");
+
+                if (quizChecked) {
+                    const userAnswer = quizChecked.value; //사용자 정답
+                    const correctAnswer = quizAnswer.textContent; //정답지 정답
+
+                    if (userAnswer === correctAnswer) {
+                        console.log("정답")
+                        quizElement.classList.add("good");
+                        quizDesc.classList.remove("none");
+                        correctConunt++;   //맞은 문제의 개수 증가
+                    } else {
+                        console.log("오답")
+                        quizElement.classList.add("bad");
+                        quizAnswer.classList.remove("none");
+                        quizDesc.classList.remove("none");
+
+                    }
+                }
+            });
+
+            // 모든 문제를 확은한 후 점수 계산 및 표시
+            const totalScore = ((correctConunt / quizElements.length) * 100).toFixed(2); //점수 계산
+            alert(`당신의 점수는 ${totalScore}점입니다. 맞은 문제 수: ${correctCount}${quizElements.length}`);
+        });
+
         //페이지가 로드된 후 실행
         document.addEventListener("DOMContentLoaded", () => {
             fetchQuiz();
