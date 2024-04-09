@@ -1,0 +1,46 @@
+[
+    {
+        "type": "정보처리 기능사",
+        "question": "컴퓨터에 의하여 다음에 실행될 명령어의 주소가 저장되어 있는 기억 장소는?",
+        "incorrect_answers": [
+            "메모리 레지스터(Memory Register)",
+            "명령어 레지스터(Instruction Register)",
+            "인덱스 레지스터(Index Register)"
+        ],
+        "correct_answer": "프로그램 카운터(Program Counter)",
+        "desc": "프로그램 카운터는 컴퓨터에의하여 다음에 실행될 명령어의 주소가 저장되어있는 기억장소입니다."
+    },
+    {
+        "type": "정보처리 기능사",
+        "question": "컴퓨터에 의하여 다음에 실행될 명령어의 주소가 저장되어 있는 기억 장소는?",
+        "incorrect_answers": [
+            "메모리 레지스터(Memory Register)",
+            "명령어 레지스터(Instruction Register)",
+            "인덱스 레지스터(Index Register)"
+        ],
+        "correct_answer": "프로그램 카운터(Program Counter)",
+        "desc": "프로그램 카운터는 컴퓨터에의하여 다음에 실행될 명령어의 주소가 저장되어있는 기억장소입니다."
+    },
+    {
+        "type": "정보처리 기능사",
+        "question": "컴퓨터에 의하여 다음에 실행될 명령어의 주소가 저장되어 있는 기억 장소는?",
+        "incorrect_answers": [
+            "메모리 레지스터(Memory Register)",
+            "명령어 레지스터(Instruction Register)",
+            "인덱스 레지스터(Index Register)"
+        ],
+        "correct_answer": "프로그램 카운터(Program Counter)",
+        "desc": "프로그램 카운터는 컴퓨터에의하여 다음에 실행될 명령어의 주소가 저장되어있는 기억장소입니다."
+    },
+    {
+        "type": "정보처리 기능사",
+        "question": "컴퓨터에 의하여 다음에 실행될 명령어의 주소가 저장되어 있는 기억 장소는?",
+        "incorrect_answers": [
+            "메모리 레지스터(Memory Register)",
+            "명령어 레지스터(Instruction Register)",
+            "인덱스 레지스터(Index Register)"
+        ],
+        "correct_answer": "프로그램 카운터(Program Counter)",
+        "desc": "프로그램 카운터는 컴퓨터에의하여 다음에 실행될 명령어의 주소가 저장되어있는 기억장소입니다."
+    }
+]
