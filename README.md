@@ -41,7 +41,7 @@
 - 반복문(forEach())
 - 메서드(join(), push(), innerHTML())
 
-fdfs
+
 
 ### vscode 확장 프로그램
 Live Server: 웹페이지 미리보기   
@@ -74,4 +74,14 @@ SCSSS ---> CSS 변환 사이트 (https://www.sassmeister.com/)
 컬러 코드 (https://htmlcolorcodes.com/)
 
 
+치트쓋(https://docs.emmet.io/cheat-sheet/)
 
+
+
+### 숙제
+
+금요일까지 퀴즈 만들기
+
+수요일 블로그 2개
+
+애니메이션 바꾸기 숙제
