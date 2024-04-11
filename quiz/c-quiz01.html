@@ -24,7 +24,7 @@
             </div>
             <div class="quiz_gauge"></div>
             <div class="quiz_footer">
-                <button class="confirm" onclick="checkAnswer()">확인</button>
+                <button class="confirm" onclick="checkAnswer()">정답 확인</button>
                 <button class="next" onclick="nextQuestion()">다음문제</button>
             </div>
             <div class="quiz_results">
@@ -76,40 +76,65 @@
         fetchAndFilterQuizData();
 
         function displayQuestion() {
-            // 현재 질문 번호와 총 질문 수 표시
-            document.getElementById("currentQuestionNumber").innerText = currentQuestionIndex + 1;
-            document.getElementById("totalQuestions").innerText = quizData.length;
+    // 현재 질문 번호와 총 질문 수 표시
+    document.getElementById("currentQuestionNumber").innerText = currentQuestionIndex + 1;
+    document.getElementById("totalQuestions").innerText = quizData.length;
 
-            // 현재 퀴즈 질문 및 설명 표시. 데이터가 없는 경우 기본 텍스트를 제공
-            const currentQuiz = quizData[currentQuestionIndex];
-            const questionText = currentQuiz.question || "질문 정보가 없습니다.";
-            const questionDesc = currentQuiz.question_desc || "";
+    // 현재 퀴즈 질문 및 설명 표시. 데이터가 없는 경우 기본 텍스트를 제공
+    const currentQuiz = quizData[currentQuestionIndex];
+    const questionText = currentQuiz.question || "질문 정보가 없습니다.";
+    const questionDesc = currentQuiz.question_desc || "";
 
-            // question_desc가 정의되어 있지 않거나 비어 있는 경우, 질문만 표시합니다.
-            document.querySelector(".question").innerHTML = questionText + (questionDesc ? '<br>' + questionDesc : '');
-        }
+    // 문제 번호 추가
+    const questionNumbered = `<span class="question-number">${currentQuestionIndex + 1}.</span>`;
 
-        function checkAnswer() {
-            const userAnswer = document.getElementById("answerInput").value;
-            // 입력값이 비어있는지 확인
-            if (!userAnswer.trim()) {
-                alert("정답을 입력해주세요.");
-                return; // 추가 로직을 실행하지 않고 함수 종료
-            }
+    // question_desc가 정의되어 있지 않거나 비어 있는 경우, 질문만 표시합니다.
+    document.querySelector(".question").innerHTML = questionNumbered + ' ' + questionText + (questionDesc ? '<br>' + questionDesc : '');
+}
 
-            const correctAnswer = quizData[currentQuestionIndex].correct_answer || ""; // 정답이 정의되지 않은 경우 빈 문자열을 기본값으로 사용
+function checkAnswer() {
+    const userAnswer = document.getElementById("answerInput").value.trim(); // 사용자 입력 값 가져오기
 
-            if (userAnswer === correctAnswer) {
-                correctAnswers++;
-                alert("정답입니다!");
-            } else {
-                incorrectAnswers++;
-                alert("오답입니다! 정답은 " + correctAnswer + "입니다.");
-            }
-            updateScore();
-        }
-        // 다음 문제로 자동 넘어가는 로직이 필요하다면 여기에 추가
+    if (userAnswer === "") {
+        alert("정답을 입력해주세요."); // 정답을 입력하지 않은 경우 알림
+        return; // 함수 종료
+    }
 
+    const currentQuiz = quizData[currentQuestionIndex];
+    const correctAnswer = currentQuiz.correct_answer;
+
+    if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) { // 대소문자 구분 없이 정답 확인
+        alert("정답입니다!");
+        correctAnswers++; // 정답 카운트 증가
+    } else {
+        alert("오답입니다. 정답은 " + correctAnswer + "입니다.");
+        incorrectAnswers++; // 오답 카운트 증가
+    }
+
+    updateScore(); // 점수 업데이트
+}
+
+function nextQuestion() {
+    const userAnswer = document.getElementById("answerInput").value.trim(); // 사용자 입력 값 가져오기
+
+    if (userAnswer === "") {
+        alert("정답을 입력해주세요."); // 정답을 입력하지 않은 경우 알림
+        return; // 함수 종료
+    }
+
+    currentQuestionIndex++; // 다음 문제로 넘어가기
+
+    if (currentQuestionIndex < quizData.length) {
+        displayQuestion(); // 다음 문제 표시
+        document.getElementById("answerInput").value = ""; // 정답 입력란 비우기
+    } else {
+        alert("퀴즈 종료!"); // 모든 문제를 푼 경우 알림
+    }
+}
+
+
+
+        
 
         function updateScore() {
             document.getElementById("correctCount").innerText = "정답: " + correctAnswers;
