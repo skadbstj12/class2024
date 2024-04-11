@@ -4,183 +4,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mission</title>
-    <link rel="stylesheet" href="assets/css/c-quiz.css">
-
-
+    <title>quizmission</title>
+    <link rel="stylesheet" href="../quiz/assets/css/c-quiz.css">
 </head>
 
 <body>
-    <header id="header">
-        <h1>
-            <a href="index.html">Quiz</a>
-        </h1>
-        <nav>
-            <ul>
-                <li><a href="quiz01.html">1</a></li>
-                <li><a href="quiz02.html">2</a></li>
-                <li><a href="quiz03.html">3</a></li>
-                <li><a href="quiz04.html">4</a></li>
-                <li><a href="quiz05.html">5</a></li>
-                <li><a href="quiz06.html">6</a></li>
-                <li class="active"><a href="c-quiz01.html">m</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- //header -->
-
-    <main id="main">
-        <div class="quiz__wrap">
-    </main>
-    <!-- //main -->
-
-    <footer id="footer">
-        <a href="mailto:nys060121@naver.com">nys060121@naver.com</a>
-    </footer>
-    <!-- //footer -->
-
-
+    <div id="wrap">
+        <div class="quiz">
+            <div class="quiz_header">
+                <span id="currentQuestionNumber">1</span> / <span id="totalQuestions"></span>
+            </div>
+            <div class="quiz_main">
+                <div class="quiz_quizbox">
+                    <div class="question"></div>
+                    <div id="input">
+                        <input type="text" id="answerInput" placeholder="정답 입력란">
+                    </div>
+                </div>
+            </div>
+            <div class="quiz_gauge"></div>
+            <div class="quiz_footer">
+                <button class="confirm" onclick="checkAnswer()">확인</button>
+                <button class="next" onclick="nextQuestion()">다음문제</button>
+            </div>
+            <div class="quiz_results">
+                <div id="correctCount">정답: 0</div>
+                <div id="incorrectCount">오답: 0</div>
+                <div id="totalScore">총 점수: 0</div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // 선택자
-        const quizWrap = document.querySelector(".quiz__wrap");
+        let quizData = [];
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
 
+        function fetchAndFilterQuizData() {
+            fetch('https://webstoryboy.github.io/webstoryboy/w_json/gineungsaShort.json')
+                .then(response => response.json())
+                .then(data => {
+                    // 정답이 12글자 이하인 문제만 필터링하고, 정답 형식 변환
+                    const filteredData = data.filter(item => item.correct_answer.length <= 12)
+                        .map(item => {
+                            // 한글 숫자를 아라비아 숫자로 변환
+                            const convertedAnswer = item.correct_answer.replace(/①/g, '1')
+                                .replace(/②/g, '2')
+                                .replace(/③/g, '3')
+                                .replace(/④/g, '4');
+                            return {
+                                ...item,
+                                correct_answer: convertedAnswer
+                            };
+                        });
 
-        // 문제 정보
-        const quizInfo = [
-            {
-                date: "2017년 상시",
-                type: "정보처리기능사",
-                question: "피변조파로 부터 원래의 신호파를 만드는 것을 무엇이라고 하는가?",
-                choices: ["발진", "정류", "증폭", "복조"],
-                answer: "4",
-                desc: "피변조파는 변조된 신호를 의미합니다. 변조된 신호를 원래의 신호로 만드는 것을 복조라고 합니다."
-            },
-            {
-                date: "2017년 상시",
-                type: "정보처리 기능사",
-                question: "반가산기(Half-Adder)의 논리회로도에서 자리올림이 발생하는 회로는?",
-                choices: ["OR", "NOT", "ExclusiveOR", "AND"],
-                answer: "4",
-                desc: "반가산기 구성: S = A XOR B, C = A AND B, <br>S : SUM(합), C : Carry(자리올림)"
-            },
-            {
-                date: "2017년 상시",
-                type: "정보처리 기능사",
-                question: "EBCDIC 코드는 몇개의 Zone bit를 갖는가?",
-                choices: ["1", "2", "3", "4"],
-                answer: "4",
-                desc: "총 코드비트<br>BCD 코드(6)<br>ASCII 코드(7)<br>EBCDIC 코드(8)<br>모든 코드의 디지트 비트는 4임<br>따라서 각 코드의 존비트는 코드총비트 - 4 입니다. 즉 8-4 = 4 입니다<br>"
-            },
-            {
-                date: "2017년 상시",
-                type: "정보처리 기능사",
-                question: "다음 중 제어장치에서 명령어의 실행 사이클에 해당하지 않는 것은?",
-                choices: ["인출 주기(fetch cycle)", "직접 주기(direct cycle)", "간접 주기(indirect cycle)", "실행 주기(execute cycle)"],
-                answer: "2",
-                desc: "제어장치의 명령어 실행 사이클은 기계주기(Machine Cycle)라 하며, 다음과 같다..<br> ① 인출사이클(Fetch Cycle) - 중앙처리장치가 기억장치에서 다음에 실행할 명령을 가져오는 주기)<br>② 명령사이클(Instruction Cycle) - 기억장치의 번지를 확인하여 명령을 읽어 낼 때까지의 단계<br>③ 실행사이클(Execution Cycle) - 명령에 따라 필요한 신호를 만들어 결과를 얻을 때까지의단계"
-            },
-            {
-                date: "2017년 상시",
-                type: "정보처리 기능사",
-                question: "일반적으로 명령어의 패치 사이클 중에는 현재 수행하고 있는 명령어의 위치를 가리키고, 실행 사이클 중에는 바로 다음에 실행할 명령어의 위치를 가리키는 Register는?",
-                choices: ["프로그램 카운터(program counter)", "누산기(accumulator)", "명령어 레지스터(instruction register)", "범용 레지스터(general purpose register)"],
-                answer: "1",
-                desc: "반가산기 구성: S = A XOR B, C = A AND B, <br>S : SUM(합), C : Carry(자리올림)"
-            },
-        ]
+                    // 최대 100개의 문제만 유지
+                    quizData = filteredData.slice(0, 100);
 
-
-        //변수
-        let currentIndex = 0; // 현재 문제에 대한 값
-        //문제 출력
-        const updateQuiz = (index) => {
-            let quizWrapTag = `
-            <div class="quiz">
-                <div class="quiz__header">${quizInfo[index].date} ${quizInfo[index].type}</div>
-                <div class="quiz__main">
-                    <div class="question">${index + 1}. ${quizInfo[index].question}</div>
-                    <div class="choices">
-                        <label for="choice1">
-                            <input type="radio" id="choice1" name="choice" value="1">
-                            <span>${quizInfo[index].choices[0]}</span>
-                        </label>
-                        <label for="choice2">
-                            <input type="radio" id="choice2" name="choice" value="2">
-                            <span>${quizInfo[index].choices[1]}</span>
-                        </label>
-                        <label for="choice3">
-                            <input type="radio" id="choice3" name="choice" value="3">
-                            <span>${quizInfo[index].choices[2]}</span>
-                        </label>
-                        <label for="choice4">
-                            <input type="radio" id="choice4" name="choice" value="4">
-                            <span>${quizInfo[index].choices[3]}</span>
-                        </label>
-
-                    </div>
-                    <div class="answer none ">${quizInfo[index].answer}</div>
-                    <div class="desc none">${quizInfo[index].desc}</div>
-                </div>
-                <div class="quiz__footer">
-                    <button class="confirm">정답 확인하기</button>
-                    <button class="next none">다음 문제</button>
-                    </div>
-                    </div>
-            `
-            quizWrap.innerHTML = quizWrapTag;
-
-            // 선택자
-            const quizConfirm = quizWrap.querySelector(".confirm");
-            const quizNext = quizWrap.querySelector(".next");
-
-            //정답 버튼을 클릭
-            quizConfirm.addEventListener("click", () => {
-                const quizChecked = quizWrap.querySelector("input[name='choice']:checked"); // 사용자가 클릭한 정답 확인
-
-                if (quizChecked) {
-                    const userAnswer = quizChecked.value;    //사용자가 클릭한 정답
-                    const quizAnswer = quizInfo[currentIndex].answer    //정답지의 정답
-                    const quizElement = quizWrap.querySelector(".quiz");
-                    const descElement = quizWrap.querySelector(".desc");
-                    const answerElement = quizWrap.querySelector(".answer");
-
-                    // 사용자 정답과 정답지 정답을 비교
-                    if (userAnswer === quizAnswer) {
-                        // O
-                        quizElement.classList.add("good");
-                        quizNext.classList.remove("none");
-                    } else {
-                        // X
-                        quizElement.classList.add("bad");
-                        answerElement.classList.remove("none");
-                    }
-                    descElement.classList.remove("none");   //설명 추가
-                    quizConfirm.classList.add("none");      //정답 버튼 삭제
-                    quizNext.classList.remove("none");      //다음 버튼 추가
-
-                } else {
-                    alert("답을 선택해주세요.");
-                }
-
-            })
-
-            // 다음 문제 버튼을 클릭
-            quizNext.addEventListener("click", () => {
-                if (currentIndex < quizInfo.length - 1) {
-                    currentIndex++;             // 문제 번호 증가
-                    updateQuiz(currentIndex);   // 퀴즈 반영
-                } else {
-                    alert("퀴즈가 종료되었습니다.");
-                }
-            })
+                    // 퀴즈 데이터와 관련된 초기화 및 화면 표시
+                    document.getElementById("totalQuestions").innerText = quizData.length;
+                    currentQuestionIndex = 0; // 현재 질문 인덱스를 0으로 초기화
+                    correctAnswers = 0; // 정답 수를 0으로 초기화
+                    incorrectAnswers = 0; // 오답 수를 0으로 초기화
+                    displayQuestion(); // 첫 번째 질문 표시
+                })
+                .catch(error => console.log('Error loading and filtering quiz data:', error));
         }
 
+        // 이 함수를 문서가 로드될 때 호출합니다.
+        fetchAndFilterQuizData();
 
-        //페이지가 로드된 후 실행
-        document.addEventListener("DOMContentLoaded", () => {
-            updateQuiz(currentIndex);
-        });
+        function displayQuestion() {
+            // 현재 질문 번호와 총 질문 수 표시
+            document.getElementById("currentQuestionNumber").innerText = currentQuestionIndex + 1;
+            document.getElementById("totalQuestions").innerText = quizData.length;
+
+            // 현재 퀴즈 질문 및 설명 표시. 데이터가 없는 경우 기본 텍스트를 제공
+            const currentQuiz = quizData[currentQuestionIndex];
+            const questionText = currentQuiz.question || "질문 정보가 없습니다.";
+            const questionDesc = currentQuiz.question_desc || "";
+
+            // question_desc가 정의되어 있지 않거나 비어 있는 경우, 질문만 표시합니다.
+            document.querySelector(".question").innerHTML = questionText + (questionDesc ? '<br>' + questionDesc : '');
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById("answerInput").value;
+            // 입력값이 비어있는지 확인
+            if (!userAnswer.trim()) {
+                alert("정답을 입력해주세요.");
+                return; // 추가 로직을 실행하지 않고 함수 종료
+            }
+
+            const correctAnswer = quizData[currentQuestionIndex].correct_answer || ""; // 정답이 정의되지 않은 경우 빈 문자열을 기본값으로 사용
+
+            if (userAnswer === correctAnswer) {
+                correctAnswers++;
+                alert("정답입니다!");
+            } else {
+                incorrectAnswers++;
+                alert("오답입니다! 정답은 " + correctAnswer + "입니다.");
+            }
+            updateScore();
+        }
+        // 다음 문제로 자동 넘어가는 로직이 필요하다면 여기에 추가
+
+
+        function updateScore() {
+            document.getElementById("correctCount").innerText = "정답: " + correctAnswers;
+            document.getElementById("incorrectCount").innerText = "오답: " + incorrectAnswers;
+            let totalScore = (correctAnswers / quizData.length) * 100;
+            document.getElementById("totalScore").innerText = "총 점수: " + totalScore.toFixed(2);
+        }
+
+        fetchQuizData(); // 퀴즈 데이터 로드
     </script>
 </body>
 
