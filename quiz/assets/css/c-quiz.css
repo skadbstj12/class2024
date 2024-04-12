@@ -69,9 +69,9 @@
 
 #wrap {
     display: flex;
-    justify-content: center;    
-    align-items: center; 
-    height: 100vh; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 #input {
@@ -125,7 +125,7 @@ a {
     width: 150px;
     top: 0;
     left: 0;
-    border: 2px solid black; 
+    border: 2px solid black;
 }
 
 .question .question-number {
@@ -138,7 +138,7 @@ a {
     width: 400px;
     height: 50px;
     background-color: #e7d8d8;
-    margin-top: 50px; 
+    margin-top: 50px;
     margin-left: 50px;
 }
 
@@ -148,7 +148,9 @@ a {
     border-radius: 5px;
     width: 500px;
     height: 250px;
-    background-color: #f7f7f734;
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 10px;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -173,7 +175,8 @@ a {
 }
 
 .quiz_footer button:hover {
-    background-color: #cccccc; /* 클릭 시 색상 변경 */
+    background-color: #cccccc;
+    /* 클릭 시 색상 변경 */
 }
 
 /* body */
@@ -194,13 +197,11 @@ body::after {
     height: 650px;
     background-color: rgb(179, 91, 91);
     position: absolute;
-    left: 50%; 
-    top: 50%; 
+    left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 8px; 
-    border: 2px solid black; 
-    box-sizing: border-box; 
+    border-radius: 8px;
+    border: 2px solid black;
+    box-sizing: border-box;
     z-index: -1;
 }
-
-
