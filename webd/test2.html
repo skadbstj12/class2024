@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            width: 100%;
+            height: 100px;
+        }
+
+
+
+        #slider {
+            width: 100%;
+            height: 300px;
+            background-color: #916d6d;
+        }
+
+        .container {
+            width: 1200px;
+            height: inherit;
+            background-color: #9d9494;
+            margin: 0 auto;
+        }
+
+        #header .container {
+            display: flex;
+        }
+
+        #header .container .logo {
+            width: 20%;
+            height: 100px;
+            background-color: #554040;
+        }
+
+        #header .container .nav {
+            width: 80%;
+            height: 100px;
+            background-color: #3f2323;
+        }
+
+        #header .nav>ul {
+            display: flex;
+            justify-content: right;
+            margin-top: 60px;
+        }
+
+        #header .nav>ul>li {
+            list-style: none;
+        }
+
+        #header .nav>ul>li>a {
+            text-decoration: none;
+            color: #000;
+            background-color: #ccc;
+            padding: 10px 40px;
+            display: inline-block;
+        }
+
+        #header .nav>ul>li>a:hover {
+            background-color: #ddd;
+        }
+
+        #header .nav>ul>li>ul {
+            text-align: center;
+            display: none;
+        }
+
+        #header .nav>ul>li>ul>li {
+            list-style: none;
+        }
+
+        #header .nav>ul>li>ul>li>a {
+            background-color: #c18c8c;
+            width: 100%;
+            padding: 10px 40px;
+            display: inline-block;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        #header .nav>ul>li>ul>li>a:hover {
+            background-color: #ddd;
+        }
+
+        .sliderwrap {
+            position: relative;
+        }
+
+        .sliderwrap .slider {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .sliderwrap .slider img {
+            width: 100%;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="logo"></div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">1차 메뉴</a>
+                        <ul>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">1차 메뉴</a>
+                        <ul>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">1차 메뉴</a>
+                        <ul>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">1차 메뉴</a>
+                        <ul>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                            <li><a href="#">2차메뉴</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <article id="slider">
+        <div class="sliderwrap">
+            <div class="slider">
+                <img src="https://webstoryboy.github.io/webstoryboy/w_webd/slider/slider01.jpg" alt="이미지1">
+            </div>
+            <div class="slider">
+                <img src="https://webstoryboy.github.io/webstoryboy/w_webd/slider/slider02.jpg" alt="이미지2">
+            </div>
+            <div class="slider">
+                <img src="https://webstoryboy.github.io/webstoryboy/w_webd/slider/slider03.jpg" alt="이미지3">
+            </div>
+        </div>
+    </article>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        //1차 메뉴를 클릭했을 때 1차메뉴 백그라운드 색을 검은색으로 변경하시오
+
+        // $(".nav>ul>li>a").click(function () {
+        //     $('.nav>ul>li>a').css("backgroundColor", 'black');
+        // });
+
+        // $(".nav>ul>li").click(function () {
+        //     $(this).find("a").css("backgroundColor", "black");
+        // });
+
+        //1차 메뉴를 오버 했을 때 2차 메뉴를 보이게 해주세요!
+        // $(".nav>ul>li>ul").mouseover(function () {
+        //     $(".nav>ul>li>ul").fadein();
+        // });
+        // //1차 메뉴를 아웃 했을 때 2차 메뉴를 숨겨주세요
+        // $(".nav>ul>li>ul").mouseout(function () {
+        //     $(".nav>ul>li>ul").fadeout();
+        // });
+
+        //이미지 슬라이드
+        let currentIndex = 0;
+
+        setInterval(() => {
+            let nextIndex = (currentIndex + 1) % 3; // 1 2 0 1 2 0 1 2 0
+
+            $(".slider").eq(currentIndex).fadeOut(1000);
+            $(".slider").eq(nextIndex).fadeIn(1000);
+
+            currentIndex = nextIndex;
+        }, 3000);
+    </script>
+</body>
+
+</html>
