@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+
+    <style>
+        body {
+            cursor: none;
+        }
+
+        .main__inner {}
+
+        .main__inner p {
+            color: #000000;
+            padding: 10vw;
+            font-size: 5vmax;
+            text-align: center;
+            font-family: "Oswald", sans-serif;
+            font-weight: 300;
+            width: 100%;
+        }
+
+        .main__inner p span {
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .main__info {
+            font-family: 'Montserrat';
+            color: #000000;
+            position: absolute;
+            left: 16px;
+            top: 70px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .main__info ul {
+            flex-wrap: wrap;
+            display: flex;
+        }
+
+        .main__info ul li {
+            width: 25%;
+            text-transform: capitalize;
+            font-family: 'Montserrat';
+            color: #000;
+            font-weight: 200;
+        }
+
+        .cursor {
+            width: 60px;
+            height: 60px;
+            background-color: #ffffff2a;
+            backdrop-filter: blur(5px);
+            position: absolute;
+            border: 1px solid #ffffff48;
+            left: 10px;
+            top: 10px;
+            border-radius: 50%;
+            z-index: 10000;
+            user-select: none;
+            pointer-events: none;
+            transition:
+                transform 0.5s,
+                background-color 0.3s,
+                border 0.3s,
+                border-radius 0.3;
+        }
+
+        .cursor::before {
+            content: '';
+            width: 15px;
+            height: 1px;
+            background-color: #3300fd;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .cursor::after {
+            content: '';
+            width: 1px;
+            height: 15px;
+            background-color: #3300fd;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor.span1 {
+            background-color: #ff000048;
+            border: 1px solid #2b41d348;
+            border-radius: 0;
+        }
+
+        .cursor.span1::before {
+            background-color: #ffffff48;
+        }
+
+        .cursor.span1::after {
+            background-color: #ffffff48;
+        }
+
+        .cursor.span2 {
+            background-color: #00ffa643;
+            border: 1px solid #62ffc820;
+            transform: scale(0.5);
+        }
+
+        .cursor.span2::before {
+            background-color: #62ffc8;
+        }
+
+        .cursor.span2::after {
+            background-color: #62ffc8;
+        }
+
+        .cursor.span3 {
+            background-color: #0051ff43;
+            border: 1px solid #ff628420;
+            border-radius: 1%;
+            transform: rotate(720deg) scale(2);
+        }
+
+        .cursor.span3::before {
+            background-color: #ff6284;
+        }
+
+        .cursor.span3::after {
+            background-color: #ff6284;
+        }
+
+        .cursor.span4 {
+            background-color: #2b41d348;
+            border: 1px solid #2b41d348;
+
+        }
+
+        .cursor.span4::before {
+            background-color: #ffffff48;
+        }
+
+        .cursor.span4::after {
+            background-color: #ffffff48;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="header__inner">
+                <h1>Mouse Effect <em>01</em></h1>
+            </div>
+        </header>
+        <!-- //header-->
+
+
+        <main id="main">
+            <div class="cursor"></div>
+            <div class="main__inner">
+                <p>
+                    JavaScript is a versatile <span>programming</span> language primarily used for adding
+                    interactivity to webpages.
+                    It runs on the client <span>side</span>, enabling dynamic updatesto <span>content</span> without
+                    requiring
+                    a page reload.
+                    JavaScript code can manipulate <span>HTML</span> and CSS, handle user input, andcommunicate with
+                    servers, making it a key tool for web development.
+                </p>
+            </div>
+            <div class="main__info">
+                <ul>
+                    <li>clientX <span class="clientX">0</span></li>
+                    <li>offsetX <span class="offsetX">0</span></li>
+                    <li>pageX <span class="pageX">0</span></li>
+                    <li>screenX <span class="screenX">0</span></li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- //main-->
+
+
+        <footer id="footer">
+            <div class="footer__inner">
+                <nav>
+                    <ul>
+                        <li class="active"><a href="mouse01.html">01</a></li>
+                        <li><a href="mouse02.html">02</a></li>
+                        <li><a href="mouse03.html">03</a></li>
+                        <li><a href="mouse04.html">04</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+        <!-- //footer-->
+    </div>
+    <!-- //wrap-->
+
+    <script>
+        // info
+        window.addEventListener("mousemove", function (event) {
+            console.log(event);
+            document.querySelector(".clientX").innerText = event.clientX;
+            document.querySelector(".offsetX").innerText = event.offsetX;
+            document.querySelector(".pageX").innerText = event.pageX;
+            document.querySelector(".screenX").innerText = event.screenX;
+        });
+
+        // mouse
+        const cursor = document.querySelector(".cursor");
+
+        window.addEventListener("mousemove", function (e) {
+            cursor.style.left = e.clientX - 50 + "px";
+            cursor.style.top = e.clientY - 50 + "px";
+        });
+
+        for (let i = 1; i <= 4; i++) {
+            document.querySelector(".main__inner p span:nth-child(" + i + ")").addEventListener("mouseover", function () {
+                cursor.classList.add("span" + i);
+            });
+            document.querySelector(".main__inner p span:nth-child(" + i + ")").addEventListener("mouseout", function () {
+                cursor.classList.remove("span" + i);
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>
