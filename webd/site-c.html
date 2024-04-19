@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-3 test</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #wrap {
+            width: 1000px;
+            height: 650px;
+        }
+
+        #header {
+            width: 1000px;
+            height: 650px;
+            background-color: #654444;
+            display: flex;
+        }
+
+        #header .header1 {
+            width: 200px;
+            height: 650px;
+            background-color: #978888;
+        }
+
+        #header .header1 .logo {
+            width: 200px;
+            height: 100px;
+            background-color: #724949;
+
+        }
+
+        #header .header1 .menu {
+            width: 200px;
+            height: 550px;
+            background-color: #b19696;
+        }
+
+        .header1 .menu ul {
+            position: absolute;
+
+
+        }
+
+        .header1 .menu ul>li {
+            position: relative;
+            list-style: none;
+            right: 6px;
+            display: flex;
+            height: 50px
+        }
+
+
+        .header1 .menu ul>li>a {
+            padding: 10px 20px;
+            background-color: #c8baba;
+            color: #000;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .header1 .menu ul>li>a:hover {}
+
+        .header1 .menu ul>li>ul {
+            display: none;
+        }
+
+        .header1 .menu ul>li>ul>li {}
+
+        .header1 .menu ul>li>ul>li>a {}
+
+        #header .header2 {
+            width: 800px;
+            height: 650px;
+            background-color: #232020;
+        }
+
+        #header .header2 .header-content {
+            width: 800px;
+            height: 350px;
+            background-color: #804848;
+        }
+
+        #header .header2 .header-main {
+            width: 800px;
+            height: 200px;
+            background-color: #460c0c;
+            display: flex;
+        }
+
+
+        .header-main .rhdwl {
+            width: 33.3333%;
+            height: 200px;
+            background-color: #511c1c;
+        }
+
+        .header-main .gallery {
+            width: 33.3333%;
+            height: 200px;
+            background-color: #180e0e;
+        }
+
+        .header-main .benner {
+            width: 33.3333%;
+            height: 200px;
+            background-color: #ad5d5d;
+        }
+
+        #header .header2 .header-footer {
+            width: 800px;
+            height: 100px;
+            background-color: #8c7878;
+            display: flex;
+        }
+
+        .header-footer .footer-logo {
+            width: 20%;
+            height: 100px;
+            background-color: #774a4a;
+        }
+
+        .header-footer .footer-menu {
+            width: 80%;
+            height: 100px;
+            background-color: #492424;
+        }
+
+        .header-footer .footer-menu .row {
+            width: 100%;
+            height: 50%;
+            background-color: #e4afaf;
+        }
+
+        .header-footer .footer-menu .copy {
+            width: 100%;
+            height: 50%;
+            background-color: #676363;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="header1">
+                <div class="logo"></div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">협회소개</a>
+                            <ul>
+                                <li><a href="#">인사말</a></li>
+                                <li><a href="#">명인</a></li>
+                                <li><a href="#">오시는길</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">행사안내</a>
+                            <ul>
+                                <li><a href="#">요리경연대회</a></li>
+                                <li><a href="#">전시참가</a></li>
+                                <li><a href="#">참가신청</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">홍보마당</a>
+                            <ul>
+                                <li><a href="#">축제소식</a></li>
+                                <li><a href="#">보도자료</a></li>
+                                <li><a href="#">레시피</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">회원마당</a>
+                            <ul>
+                                <li><a href="#">Q&A</a></li>
+                                <li><a href="#">사진갤러리</a></li>
+                                <li><a href="#">공지사항</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header2">
+                <div class="header-content"></div>
+                <div class="header-main">
+                    <div class="rhdwl"></div>
+                    <div class="gallery"></div>
+                    <div class="benner"></div>
+                </div>
+                <div class="header-footer">
+                    <div class="footer-logo"></div>
+                    <div class="footer-menu">
+                        <div class="row"></div>
+                        <div class="copy"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

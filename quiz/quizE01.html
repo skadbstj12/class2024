@@ -51,7 +51,7 @@
     </div>
 
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-    
+
     <script type="module">
         import { SVG } from "https://cdn.skypack.dev/@svgdotjs/svg.js@3.1.1";
         import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@3.0.1";
@@ -465,66 +465,66 @@
 
             return blobWrapper.path(spline(points, 1, true)).fill("#000");
         }
-        
+
         document.addEventListener('DOMContentLoaded', async () => {
-    const quizData = await fetch('/quiz/json/quizmission.json').then(response => response.json());
-    let currentIndex = 0;
+            const quizData = await fetch('/quiz/json/quizmission.json').then(response => response.json());
+            let currentIndex = 0;
 
-    // 처음 100개의 질문만 사용하기 위해 quizData를 잘라내서 filteredQuizData에 할당
-    const filteredQuizData = quizData.slice(0, 100);
+            // 처음 100개의 질문만 사용하기 위해 quizData를 잘라내서 filteredQuizData에 할당
+            const filteredQuizData = quizData.slice(0, 100);
 
-    const numberElement = document.querySelector('.number');
-    const questionElement = document.querySelector('.question');
-    const answerInputElement = document.querySelector('.answer input');
-    const confirmButton = document.querySelector('.confirm button:nth-child(1)');
-    const prevButton = document.querySelector('.confirm button:nth-child(2)');
-    const nextButton = document.querySelector('.confirm button:nth-child(3)');
+            const numberElement = document.querySelector('.number');
+            const questionElement = document.querySelector('.question');
+            const answerInputElement = document.querySelector('.answer input');
+            const confirmButton = document.querySelector('.confirm button:nth-child(1)');
+            const prevButton = document.querySelector('.confirm button:nth-child(2)');
+            const nextButton = document.querySelector('.confirm button:nth-child(3)');
 
-    function updateQuizInterface(index) {
-        // filteredQuizData를 사용하여 질문 업데이트
-        const quiz = filteredQuizData[index];
-        numberElement.textContent = `${index + 1}/${filteredQuizData.length}`;
-        questionElement.textContent = quiz.question;
-        if (quiz.question_desc) {
-            questionElement.innerHTML = `<p>${quiz.question}</p><p>${quiz.question_desc}</p>`;
-        }
-        answerInputElement.value = '';
-    }
+            function updateQuizInterface(index) {
+                // filteredQuizData를 사용하여 질문 업데이트
+                const quiz = filteredQuizData[index];
+                numberElement.textContent = `${index + 1}/${filteredQuizData.length}`;
+                questionElement.textContent = quiz.question;
+                if (quiz.question_desc) {
+                    questionElement.innerHTML = `<p>${quiz.question}</p><p>${quiz.question_desc}</p>`;
+                }
+                answerInputElement.value = '';
+            }
 
-    function checkAnswer() {
-        const userAnswer = answerInputElement.value.trim();
-        // filteredQuizData의 현재 인덱스를 사용
-        const correctAnswer = filteredQuizData[currentIndex].correct_answer;
+            function checkAnswer() {
+                const userAnswer = answerInputElement.value.trim();
+                // filteredQuizData의 현재 인덱스를 사용
+                const correctAnswer = filteredQuizData[currentIndex].correct_answer;
 
-        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-            alert('정답입니다!');
-        } else {
-            alert(`오답입니다. 정답은 ${correctAnswer}입니다.`);
-        }
-    }
+                if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                    alert('정답입니다!');
+                } else {
+                    alert(`오답입니다. 정답은 ${correctAnswer}입니다.`);
+                }
+            }
 
-    confirmButton.addEventListener('click', checkAnswer);
+            confirmButton.addEventListener('click', checkAnswer);
 
-    prevButton.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateQuizInterface(currentIndex);
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < filteredQuizData.length - 1) {
+                    currentIndex++;
+                    updateQuizInterface(currentIndex);
+                }
+            });
+
             updateQuizInterface(currentIndex);
-        }
-    });
-
-    nextButton.addEventListener('click', () => {
-        if (currentIndex < filteredQuizData.length - 1) {
-            currentIndex++;
-            updateQuizInterface(currentIndex);
-        }
-    });
-
-    updateQuizInterface(currentIndex);
-});
+        });
 
 
     </script>
-    
+
 </body>
 
 </html>
