@@ -54,6 +54,15 @@ body {
     line-height: 1;
 }
 
+#header h1 a {
+    font-family: 'Montserrat';
+    color: #000000;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 10px 0;
+    line-height: 1;
+}
+
 #header h1 em {
     font-weight: 600;
     font-style: normal;
@@ -65,6 +74,8 @@ body {
 
 #footer {
     width: 100%;
+    position: relative;
+    z-index: 20000;
 }
 
 .footer__inner {}
@@ -85,10 +96,27 @@ body {
     display: inline-block;
     font-family: 'Montserrat';
     line-height: 1;
-
+    background-color: #813d3d;
 }
 
 .footer__inner ul li.active a {
     background-color: #d2d2d2;
     color: #813d3d;
+}
+
+.footer__inner .link {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.footer__inner .link a {
+    font-family: 'Montserrat';
+    background-image: url(../svg/arrow2.svg);
+    background-size: 10px;
+    padding-right: 25px;
+    background-size: 13px;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-color: #813d3d;
 }

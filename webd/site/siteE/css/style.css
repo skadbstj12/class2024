@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrap {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+}
+
+#header {
+    width: 200px;
+    height: 900px;
+    background-color: #5b4242;
+}
+
+
+#header .logo {
+    width: 200px;
+    height: 150px;
+    line-height: 150px;
+    color: #fff;
+    text-align: center;
+    background-color: #c38888;
+}
+
+#header .nav {}
+
+#header .nav>ul {}
+
+#header .nav>ul>li {
+    margin-left: 13px;
+    list-style: none;
+}
+
+#header .nav>ul>li>a {
+    top: 20px;
+    width: 150px;
+    color: #000000;
+    background-color: #c77f7f;
+    padding: 10px;
+    display: inline-block;
+    text-decoration-line: none;
+}
+
+#header .nav>ul>li>a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#header .nav>ul>li>ul {
+    display: none;
+}
+
+#header .nav>ul>li>ul>li {}
+
+#header .nav>ul>li>ul>li>a {
+    padding: 10px 30px;
+    background-color: #136b0975;
+    display: inline-block;
+    color: #fff;
+    width: 100%;
+}
+
+#header .nav>ul>li>ul>li>a:hover {
+    background-color: #cacaca;
+}
+
+#main {
+    width: calc(100% - 200px);
+    height: 900px;
+    background-color: #7d2f2f;
+    display: flex;
+}
+
+#main .banner {
+    height: 400px;
+    width: 400px;
+    background-color: #bf4040;
+}
+
+#main .banner .news {
+    height: 400px;
+    width: 400px;
+    background-color: #b19696;
+}
+
+#main .banner .news {}
+
+#main .banner .gallery {
+    height: 400px;
+    width: 400px;
+    background-color: #604e4e;
+}
+
+#main .banner .imgbox {
+    height: 100px;
+    width: 400px;
+    background-color: #9f7777;
+}
+
+#main .img {
+    height: 900px;
+    width: calc(100% - 400px);
+    background-image: url(../images/museum01.jpg);
+}
+
+#footer {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-color: #8d3f3f;
+    bottom: -7px;
+    display: flex;
+}
+
+#footer .logo {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    color: #fff;
+    text-align: center;
+    background-color: #c38888;
+}
+
+#footer .tjfaud {
+    width: calc(100% - 400px);
+    height: 100px;
+    background-color: #f08d8d;
+}
+
+#footer .family {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    color: #fff;
+    text-align: center;
+    background-color: #c38888;
+}
+
+#footer .family>select {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 24px;
+    background-color: #f8a8a8;
+}
