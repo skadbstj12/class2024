@@ -59,7 +59,7 @@ img {
 
 #aside .nav>ul>li>a {
     display: inline-block;
-    background-color: #58339e;
+    background-color: #8963d1;
     color: #fff;
     width: 100%;
     text-align: center;
@@ -68,7 +68,7 @@ img {
 }
 
 #aside .nav>ul>li>a:hover {
-    background-color: #7243c9;
+    background-color: #8963d1;
 }
 
 #aside .nav>ul>li>ul {
@@ -89,7 +89,7 @@ img {
 }
 
 #aside .nav>ul>li>ul>li>a:hover {
-    background-color: #8558d1;
+    background-color: #8963d1;
     color: #fff;
 }
 
@@ -151,7 +151,7 @@ img {
 #contents .notice {
     width: 300px;
     height: 200px;
-    background-color: #f9ddff;
+    background-color: #8963d1;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -188,7 +188,7 @@ img {
 #contents .gallery {
     width: 300px;
     height: 200px;
-    background-color: #e0bfff;
+    background-color: #8963d1;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -234,7 +234,7 @@ img {
 }
 
 #contents .link a {
-    background-color: #58339e;
+    background-color: #8963d1;
     color: #fff;
     padding: 10px 20px;
     border-radius: 40px;
