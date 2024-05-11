@@ -19,7 +19,8 @@
         }
 
         body {
-            background-color: #111;
+            --bg-color: #111;
+            background-color: var(--bg-color);
         }
 
         .header__inner a {
@@ -150,9 +151,65 @@
             margin-right: -4vw;
         }
 
-        .split>span {
+        .parallax__progress progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+            width: 100%;
+            height: 5px;
+            border: 0;
+            appearance: none;
+            background: transparent;
+        }
+
+
+        .parallax__progress progress::-webkit-progress-bar {
+            background: transparent;
+        }
+
+        .parallax__progress progress::-webkit-progress-value {
+            background: linear-gradient(to left, #db38b5, #01b3e3, #25ce7b, #fdc741, #ff6b01, #fc4236);
+            background-attachment: fixed;
+        }
+
+        .parallax__progress progress::-moz-progress-bar {
+            background: linear-gradient(to left, #db38b5, #01b3e3, #25ce7b, #fdc741, #ff6b01, #fc4236);
+            background-attachment: fixed;
+        }
+
+        #parallax__nav {
+            position: fixed;
+            right: 120px;
+            top: 20px;
+            z-index: 10000;
+            background-color: rgba(255, 255, 255, 1);
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        #parallax__nav li {
+            display: inline;
+        }
+
+        #parallax__nav li a {
             display: inline-block;
-            min-width: 1vw;
+            width: 34px;
+            height: 34px;
+            padding: 5px;
+            text-align: center;
+            line-height: 34px;
+            border-radius: 50px;
+            background-color: #000;
+            color: #fff;
+            font-family: 'NexonLv1Gothic';
+            text-transform: uppercase;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        #parallax__nav li a.active {
+            background-color: red;
         }
     </style>
 </head>
@@ -161,8 +218,8 @@
     <div id="wrap">
         <header id="header">
             <div class="header__inner">
-                <h1><a href="index.html">Parallax Effect 06</a></h1>
-                <p>GSAP scrollTrigger - 나타나기</p>
+                <h1><a href="index.html">Parallax Effect 09</a></h1>
+                <p>GSAP scrollTrigger 메뉴 이동효과</p>
 
                 <div class="link">
                     <ul>
@@ -173,94 +230,109 @@
         </header>
         <!-- //header -->
 
+        <nav id="parallax__nav">
+            <ul>
+                <li><a href="#section1" class="active">s1</a></li>
+                <li><a href="#section2">s2</a></li>
+                <li><a href="#section3">s3</a></li>
+                <li><a href="#section4">s4</a></li>
+                <li><a href="#section5">s5</a></li>
+                <li><a href="#section6">s6</a></li>
+                <li><a href="#section7">s7</a></li>
+                <li><a href="#section8">s8</a></li>
+                <li><a href="#section9">s9</a></li>
+            </ul>
+        </nav>
+        <!-- //parallax__nav-->
+
         <main id="parallax__cont">
-            <section id="section1" class="parallax__item">
+            <section id="section1" class="parallax__item" data-bgcolor="#111111">
                 <span class="parallax__item__num">01</span>
                 <h2 class="parallax__item__title">section1</h2>
                 <figure class="parallax__item__imgWrap">
                     <div class="parallax__item__img"></div>
                 </figure>
-                <p class="parallax__item__desc split">높은 목표를 세우고, 스스로 채찍질 한다.</p>
+                <p class="parallax__item__desc ">높은 목표를 세우고, 스스로 채찍질 한다.</p>
             </section>
             <!-- //section1 -->
 
-            <section id="section2" class="parallax__item">
+            <section id="section2" class="parallax__item" data-bgcolor="#231312">
                 <span class="parallax__item__num">02</span>
                 <h2 class="parallax__item__title">section2</h2>
                 <figure class="parallax__item__imgWrap">
                     <div class="parallax__item__img"></div>
                 </figure>
-                <p class="parallax__item__desc  split">결과도 중요하지만, 과정을 더 중요하게 생각한다.</p>
+                <p class="parallax__item__desc  ">결과도 중요하지만, 과정을 더 중요하게 생각한다.</p>
             </section>
             <!-- //section2 -->
 
-            <section id="section3" class="parallax__item">
+            <section id="section3" class="parallax__item" data-bgcolor="#222222">
                 <span class="parallax__item__num">03</span>
                 <h2 class="parallax__item__title">section3</h2>
                 <figure class="parallax__item__imgWrap">
                     <div class="parallax__item__img"></div>
                 </figure>
-                <p class="parallax__item__desc split">매 순간에 최선을 다하고, 끊임없이 변화한다.</p>
+                <p class="parallax__item__desc ">매 순간에 최선을 다하고, 끊임없이 변화한다.</p>
             </section>
             <!-- //section3 -->
 
-            <section id="section4" class="parallax__item">
+            <section id="section4" class="parallax__item" data-bgcolor="#444444">
                 <span class="parallax__item__num">04</span>
                 <h2 class="parallax__item__title">section4</h2>
                 <figure class="parallax__item__imgWrap">
                     <div class="parallax__item__img"></div>
                 </figure>
-                <p class="parallax__item__desc  split">모든 일에는 기본을 중요하게 생각한다.</p>
+                <p class="parallax__item__desc  ">모든 일에는 기본을 중요하게 생각한다.</p>
             </section>
             <!-- //section4 -->
 
-            <section id="section5" class="parallax__item">
+            <section id="section5" class="parallax__item" data-bgcolor="#222131">
                 <span class="parallax__item__num">05</span>
                 <h2 class="parallax__item__title">section5</h2>
                 <figure class="parallax__item__imgWrap">
                     <div class="parallax__item__img"></div>
                 </figure>
-                <p class="parallax__item__desc split">열정을 잃지 않고 실패에서 실패로 걸어가는 것이 성공이다.</p>
+                <p class="parallax__item__desc ">열정을 잃지 않고 실패에서 실패로 걸어가는 것이 성공이다.</p>
             </section>
             <!-- //section5 -->
 
-            <section id="section6" class="parallax__item">
+            <section id="section6" class="parallax__item" data-bgcolor="#554468">
                 <span class="parallax__item__num">06</span>
                 <h2 class="parallax__item__title">section6</h2>
                 <figure class="parallax__item__imgWrap">
                     <div class="parallax__item__img"></div>
                 </figure>
-                <p class="parallax__item__desc split">천 마디 말보단 하나의 행동이 더 값지다.</p>
+                <p class="parallax__item__desc ">천 마디 말보단 하나의 행동이 더 값지다.</p>
             </section>
             <!-- //section6 -->
 
-            <section id="section7" class="parallax__item">
+            <section id="section7" class="parallax__item" data-bgcolor="#121212">
                 <span class="parallax__item__num">07</span>
                 <h2 class="parallax__item__title">section7</h2>
                 <figure class="parallax__item__imgWrap">
                     <div class="parallax__item__img"></div>
                 </figure>
-                <p class="parallax__item__desc split">조그만 성공에 만족하지 않으며, 방심을 경계한다.</p>
+                <p class="parallax__item__desc ">조그만 성공에 만족하지 않으며, 방심을 경계한다.</p>
             </section>
             <!-- //section7 -->
 
-            <section id="section8" class="parallax__item">
+            <section id="section8" class="parallax__item" data-bgcolor="#534212">
                 <span class="parallax__item__num " data-delay="1">08</span>
                 <h2 class="parallax__item__title " data-delay="0.5">section8</h2>
                 <figure class="parallax__item__imgWrap  ">
                     <div class="parallax__item__img"></div>
                 </figure>
-                <p class="parallax__item__desc split" data-delay="1.5">나는 내가 더 노력할수록 운이 더 좋아진다는 걸 발견했다.</p>
+                <p class="parallax__item__desc " data-delay="1.5">나는 내가 더 노력할수록 운이 더 좋아진다는 걸 발견했다.</p>
             </section>
             <!-- //section8 -->
 
-            <section id="section9" class="parallax__item">
+            <section id="section9" class="parallax__item" data-bgcolor="#554341">
                 <span class="parallax__item__num">09</span>
                 <h2 class="parallax__item__title">section9</h2>
                 <figure class="parallax__item__imgWrap">
                     <div class="parallax__item__img"></div>
                 </figure>
-                <p class="parallax__item__desc split">꿈이 있다면, 그 꿈을 잡고 절대 놓아주지마라.</p>
+                <p class="parallax__item__desc ">꿈이 있다면, 그 꿈을 잡고 절대 놓아주지마라.</p>
             </section>
             <!-- //section9 -->
         </main>
@@ -274,7 +346,10 @@
                         <li><a href="parallax03.html">03</a></li>
                         <li><a href="parallax04.html">04</a></li>
                         <li><a href="parallax05.html">05</a></li>
-                        <li class="active"><a href="parallax06.html">06</a></li>
+                        <li><a href="parallax06.html">06</a></li>
+                        <li><a href="parallax07.html">07</a></li>
+                        <li><a href="parallax08.html">08</a></li>
+                        <li class="active"><a href="parallax09.html">09</a></li>
                     </ul>
                 </nav>
             </div>
@@ -283,96 +358,48 @@
     </div>
     <!-- //wrap -->
 
+    <div class="parallax__progress">
+        <progress max="100" value="0"></progress>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     <script>
-        // 단수
-        // let text = document.querySelector(".split");
-        // let splitText = text.innerText;
-        // let splitWrap = splitText.split("").join("<span></span>");
-        // text.innerHTML = splitWrap = "<span>" + splitWrap + "</span>";
-
-
-        //복수(forEach)
-        // document.querySelectorAll(".split").forEach((text) => {
-        //     let splitText = text.innerText;
-        //     let splitWrap = splitText.split("").join("</span><span aria-hidden='true'>");
-        //     text.innerHTML = splitWrap = "<span aria-hidden='true'>" + splitWrap + "</span>";
-        //     text.setAttribute("aria-label", splitText);
-        // });
-
-        //gsap
-        // gsap.from(".split span", {
-        //     yPercent: 100,
-        //     autoAlpha: 0,
-        //     duration: 2,
-        //     ease: "circ.out",
-        //     stagger: 0.1,
-
-        // scrollTrigger: {
-        //     trigger: ".split",
-        //     start: "top center",
-        //     end: "+=400",
-        //     markers: true,
-        //     scrub: 1
-        //     }
-        // })
-
-        // gsap.utils.toArray(".split").forEach((text) => {
-        //     gsap.from(text.querySelectorAll("span"), {
-        //         yPercent: 100,
-        //         autoAlpha: 0,
-        //         duration: 1,
-        //         ease: "circ.out",
-        //         stagger: {
-        //             amount: 1,
-        //             from: "random"
-        //         },
-
-
-        //         scrollTrigger: {
-        //             trigger: text,
-        //             start: "top center",
-        //             end: "+=400",
-        //             markers: true,
-        //         }
-        //     })
-        // });
-
-        //
-
-
+        gsap.to("progress", {
+            value: 100,
+            ease: "none",
+            scrollTrigger: { scrub: 0.3 }
+        })
     </script>
-    <script src="https://unpkg.com/split-type"></script>
     <script>
-        const targets = gsap.utils.toArray(".split");
+        let links = gsap.utils.toArray("#parallax__nav ul li a");
 
-        targets.forEach((target) => {
-            let SplitClient = new SplitType(target, { type: "lines, words, chars" });
-            let lines = SplitClient.lines;
-            let words = SplitClient.words;
-            let chars = SplitClient.chars;
+        links.forEach(link => {
+            let element = document.querySelector(link.getAttribute("href")),
 
-            gsap.from(chars, {
-                yPercent: 100,
-                autoAlpha: 0,
-                duration: 1,
-                ease: "circ.out",
-                stagger: {
-                    amount: 1,
-                    from: "random"
-                },
+                linkST = ScrollTrigger.create({
+                    trigger: element,
+                    start: "top top"
+                });
 
-                scrollTrigger: {
-                    trigger: target,
-                    start: "top center",
-                    end: "+=400",
-                    markers: true,
-                }
-            })
+            ScrollTrigger.create({
+                trigger: element,
+                start: "top center",
+                end: "bottom center",
+                onToggle: self => setActive(link)
+            });
+
+            link.addEventListener("click", e => {
+                e.preventDefault();
+                gsap.to(window, { duration: 1, scrollTo: linkST.start, overwrite: "auto" });
+            });
         });
 
+        function setActive(link) {
+            links.forEach(el => el.classList.remove("active"));
+            link.classList.add("active");
+        }
     </script>
 </body>
 

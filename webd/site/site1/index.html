@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="header-container">
+                <h1 class="logo"><a href="#">국방부</a></h1>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#">국방부 소개</a>
+                            <ul class="submenu">
+                                <li><a href="#">국방부 소개</a></li>
+                                <li><a href="#">장관</a></li>
+                                <li><a href="#">조직 및 직원 안내</a></li>
+                                <li><a href="#">찾아오시는 길</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">국방부 민원</a>
+                            <ul class="submenu">
+                                <li><a href="#">민원안내</a></li>
+                                <li><a href="#">민원신청</a></li>
+                                <li><a href="#">나의 민원 검색</a></li>
+                                <li><a href="#">국방신고센터</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">국방부 소식</a>
+                            <ul class="submenu">
+                                <li><a href="#">보도자료</a></li>
+                                <li><a href="#">언론보도 바로보기</a></li>
+                                <li><a href="#">국방뉴스</a></li>
+                                <li><a href="#">알림</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">정보 공개</a>
+                            <ul class="submenu">
+                                <li><a href="#">정보공개제도</a></li>
+                                <li><a href="#">정보목록</a></li>
+                                <li><a href="#">공공데이터개방</a></li>
+                                <li><a href="#">업무추진비</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!--//header-->
+
+        <article id="slider">
+            <div class="slider-container"></div>
+        </article>
+        <!--//slider-->
+        <main id="content">
+            <div class="content-container">
+                <section class="info"></section>
+                <section class="banner"></section>
+                <section class="link"></section>
+            </div>
+        </main>
+        <!--//content-->
+        <footer id="footer">
+            <div class="footer-container">
+                <div class="footer1"></div>
+                <div class="footer2">
+                    <div class="footer2-1"></div>
+                    <div class="footer2-2"></div>
+                </div>
+            </div>
+        </footer>
+        <!--//footer-->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 이미지 슬라이드
+            let currentIndex = 0;
+            const sliderWrap = document.querySelector(".sliderWrap");
+            const sliders = document.querySelectorAll(".slider");
+            // sliderWrap.appendChild(sliders[0].cloneNode(true));
+
+            setInterval(function () {
+                currentIndex++;
+                sliderWrap.style.transition = "margin-left 0.6s ease-in-out";
+                sliderWrap.style.marginLeft = -1200 * currentIndex + "px";
+
+                if (currentIndex === sliders.length) {
+                    setTimeout(function () {
+                        sliderWrap.style.transition = "none";
+                        sliderWrap.style.marginLeft = 0;
+                        currentIndex = 0;
+                    }, 700);
+                }
+            }, 3000);
+
+            const navItems = document.querySelectorAll(".nav > ul > li");
+            const submenus = document.querySelectorAll(".nav > ul > li > .submenu");
+
+            navItems.forEach(function (navItem) {
+                navItem.addEventListener("mouseover", function () {
+                    submenus.forEach(function (submenu) {
+                        submenu.style.display = "block";
+                    });
+                    document.querySelector("#header .header-container").classList.add("on");
+                });
+                navItem.addEventListener("mouseout", function () {
+                    submenus.forEach(function (submenu) {
+                        submenu.style.display = "none";
+                    });
+                    document.querySelector("#header .header-container").classList.remove("on");
+                });
+            });
+
+            // // 팝업
+            // document.querySelector(".popup-btn").addEventListener("click", function () {
+            //     document.querySelector(".popup-view").style.display = "block";
+            // });
+            // document.querySelector(".popup-close").addEventListener("click", function () {
+            //     document.querySelector(".popup-view").style.display = "none";
+            // });
+        });
+    </script>
+</body>
+
+</html>
