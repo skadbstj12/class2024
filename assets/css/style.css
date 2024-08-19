@@ -107,17 +107,17 @@
 
 body {
     width: 100%;
-    height: 100vh;
-    background-image: url(../img/Wallpaper.jpg);
+    height: 82vh;
+    background-image: url(../img/background.gif);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     overflow: hidden;
 }
 
+
 /* main__icons */
 .main__icons {
-    display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
     justify-content: center;
@@ -129,7 +129,7 @@ body {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin: 10px;
+        margin: 25px;
         cursor: pointer;
         text-align: center;
 
@@ -147,6 +147,8 @@ body {
         }
     }
 }
+
+.icon {}
 
 /* layer__wrap */
 .layer__wrap {}
